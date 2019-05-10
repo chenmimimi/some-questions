@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/authorize/authorize",
     "pages/home/home",
     "pages/adviseDetail/adviseDetail",
     "pages/discussDetail/discussDetail",
