@@ -1,0 +1,21 @@
+<!--components/tabs/index.wxml-->
+<view class="fun-tabs custom-class">
+  <view class="tab-content">
+    <view class="tab-list">
+      <view
+        class="tab-item {{active===index?'active':''}}"
+        wx:for="{{items}}"
+        wx:key="{{index}}"
+        bindtap="switchTab"
+        data-index="{{index}}"
+      >
+        <view class="tab-name">{{item}}</view>
+      </view>
+    </view>
+    <view
+      class="tab-line"
+      wx:if="{{indicator}}"
+      style="left:{{tabLineData[active].left}}px; width:{{tabLineData[active].width}}px;"
+    />
+  </view>
+</view>

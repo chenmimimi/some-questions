@@ -1,0 +1,13 @@
+<view class="discuss-detail-page">
+  <view class="advise-detail-title">{{detail.title}}</view>
+  <view class="advise-detail-description">{{detail.description}}</view>
+  <view class='extra'> 
+    <text class="time">2019-04-30 12:12:12</text> 
+  </view>
+  <view>
+    <textarea class="advise-page-dec" id="" cols="30" rows="10" placeholder="请输入评论" bindinput="bindTextarea"></textarea>
+    <button class="cancel" bindtap="addAdvise">取 消</button>
+    <button class="{{(!inputValue || !textareaValue) ? 'disabled': ''}}" bindtap="addAdvise" disabled="{{!inputValue || !textareaValue }}">评 论</button>
+  </view>
+  
+</view>

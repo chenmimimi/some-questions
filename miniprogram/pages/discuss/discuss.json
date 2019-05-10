@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "fun-accordion": "../../components/fun-accordion/index",
+    "fun-panel": "../../components/fun-panel/index"
+  }
+}

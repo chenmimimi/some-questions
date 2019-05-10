@@ -1,0 +1,87 @@
+/* miniprogram/pages/discuss/discuss.wxss */
+.discuss-page-container{
+  padding: 4rpx;
+  padding-right: 6rpx;
+}
+.item{
+  position: relative;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #E8E8E8;
+  padding-bottom: 0;
+}
+.active{
+  border-bottom: none;
+  box-shadow: 1rpx 4rpx 10rpx rgba(83, 163, 80, 0.6);
+}
+icon{
+  float: right;
+  vertical-align: top;
+}
+.title{
+  color: #444;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.extra{
+  font-size: 26rpx;
+  color: #bbb;
+}
+.time{
+  line-height: 80rpx;
+}
+.operate.detail{
+  float: right;
+  text-align: right;
+  font-size: 26rpx;
+}
+.like{
+  color: #FF6666;
+  margin-right: 20rpx;
+  line-height: 40rpx;
+}
+.discuss{
+  color: rgb(118,213,114);
+}
+.discuss-image, .like-image{
+  vertical-align: middle;
+  margin-right: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: -5rpx;
+}
+.go-discuss{
+  line-height: 80rpx;
+  background-color: rgb(118,213,114);
+  color: #fff;
+  margin-bottom: 30rpx;
+  font-weight: bolder;
+}
+.operate{
+  position: absolute;
+  right: 30rpx;
+  bottom: 0rpx;
+  width: 160rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 5rpx;
+  font-size: 30rpx;
+}
+.detail{
+  width: 200rpx;
+  background-color:#fff;
+  bottom: 0;
+}
+.add{
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  bottom: 15rpx;
+  left: 50%;
+  margin-left: -40rpx;
+  opacity: 0.7;
+}
+.add image{
+  width: 100%;
+  height: 100%;
+}

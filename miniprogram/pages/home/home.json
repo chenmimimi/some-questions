@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "fun-tab": "../../components/fun-tabs/index"
+  }
+}

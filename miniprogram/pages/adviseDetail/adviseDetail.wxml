@@ -1,0 +1,40 @@
+<!--miniprogram/pages/adviseDetail/adviseDetail.wxml-->
+<view class="advise-detail-page">
+  <view class="advise-detail-title">{{detail.title}}</view>
+  <view class="advise-detail-description">{{detail.description}}</view>
+  <view class='extra'> 
+    <text class="time">2019-04-30 12:12:12</text> 
+  </view>
+  <view class="reply">
+    <view class="item">
+      <image src=''/>
+      <view class="content">
+        <text class="name">这是名字</text><text class="time">2018-09-20</text>
+        <view class="main">这是评论内容，这是评论内容，这是评论内容，这是评论内容</view>
+      </view>
+    </view>
+    <view class="item">
+      <image src=''/>
+      <view class="content">
+        <text class="name">这是名字</text><text class="time">2018-09-20</text>
+        <view class="main">这是评论内容，这是评论内容，这是评论内容，这是评论内容</view>
+      </view>
+    </view>
+  </view>
+  <view class="comment">
+    <view class="item">
+      <image src=''/>
+      <view class="content">
+        <text class="name">这是名字</text><text class="time">2018-09-20</text>
+        <view class="main">这是评论内容，这是评论内容，这是评论内容，这是评论内容</view>
+      </view>
+    </view>
+    <view class="item">
+      <image src=''/>
+      <view class="content">
+        <text class="name">这是名字</text><text class="time">2018-09-20</text>
+        <view class="main">这是评论内容，这是评论内容，这是评论内容，这是评论内容</view>
+      </view>
+    </view>
+  </view>
+</view>

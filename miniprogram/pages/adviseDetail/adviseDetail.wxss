@@ -1,0 +1,56 @@
+/* miniprogram/pages/adviseDetail/adviseDetail.wxss */
+.advise-detail-page{
+  padding: 40rpx 40rpx;
+}
+.advise-detail-title{
+  color: 444;
+  font-size: 34rpx;
+}
+.advise-detail-description{
+  color: #444;
+  font-size: 28rpx;
+  margin-top: 8rpx;
+}
+.advise-page-title{
+  height: 88rpx;
+  padding: 0 20rpx;
+  box-shadow:0 0 4rpx #76D572;
+}
+.extra{
+  color: #bbb;
+  font-size: 24rpx;
+  margin-top: 12rpx;
+}
+.comment,.reply{
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 20rpx;
+  margin-top: 50rpx;
+}
+.item{
+  display: flex;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.item image{
+  flex: 0 0 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 5rpx;
+  background-color: antiquewhite;
+}
+.item .content{
+  flex: 1;
+  font-size: 24rpx;
+  margin-left: 40rpx;
+}
+.item .name{
+  color: #576B95;
+  font-weight: bolder;
+}
+.item .time{
+  float: right;
+  color: #bbb;
+}
+.item .main{
+  margin-top: 20rpx;
+}

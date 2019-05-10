@@ -1,0 +1,5 @@
+/* components/fun-accordion/index.wxss */
+.fun-accordion{
+  border-top: 1rpx solid #EAEAEA;  
+  background-color: #fff;
+}

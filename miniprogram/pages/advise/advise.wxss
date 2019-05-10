@@ -1,0 +1,32 @@
+/* miniprogram/pages/advise/advise.wxss */
+.advise-page{
+  padding: 0 50rpx;
+  padding-top: 80rpx;
+  font-size: 36rpx;
+}
+.advise-page-title{
+  height: 88rpx;
+  padding: 0 20rpx;
+  box-shadow:0 0 4rpx #FF6666;
+}
+.advise-page-dec{
+  box-sizing: border-box;
+  padding: 20rpx;
+  width: 100%;
+  margin-top: 50rpx;
+  box-shadow:0 0 4rpx #FF6666; 
+}
+.disabled{
+  background-color: #FF6666 !important;
+  color: #fff !important;
+  opacity: 0.5;
+}
+button{
+  margin-top: 70rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 38rpx;
+  background-color: #FF6666;
+  color: #fff;
+}
