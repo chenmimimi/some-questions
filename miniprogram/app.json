@@ -33,10 +33,11 @@
       },
       {
         "pagePath": "pages/discuss/discuss",
-        "text": "更多",
-        "iconPath": "images/more.png",
-        "selectedIconPath": "images/more1.png"
+        "text": "社区",
+        "iconPath": "images/community.png",
+        "selectedIconPath": "images/community1.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -19,9 +19,12 @@ Page({
     })
   },
 
-  selectItem(event) {
-    this.setData({
-      selectId: event.currentTarget.dataset.index
+  toAdviseDetail(event) {
+    const id = event.currentTarget.dataset.id
+    wx.navigateTo({
+      //目的页面地址
+      url: "../discussDetail/discussDetail?id=" + id,
+      success: function(res){},
     })
   },
 

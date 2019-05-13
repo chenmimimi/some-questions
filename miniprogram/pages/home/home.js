@@ -40,6 +40,20 @@ Page({
    */
   onLoad: function (options) {
     this.getData()
+    
+    wx.getUserInfo({
+        success: function (res) {
+            //从数据库获取用户信息
+            console.log(res)
+        }
+    });
+    // wx.getWeRunData({
+    //   success: function (res) {
+    //       //从数据库获取用户信息
+    //       console.log(res)
+    //   }
+    // });
+
   },
 
   /**
