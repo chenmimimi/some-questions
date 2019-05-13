@@ -38,5 +38,6 @@
         "selectedIconPath": "images/more1.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

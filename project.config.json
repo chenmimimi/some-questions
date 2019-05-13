@@ -10,7 +10,9 @@
 	},
 	"appid": "wxcbb031aad0cdfaa5",
 	"projectname": "some-questions",
-	"libVersion": "2.2.5",
+	"libVersion": "2.6.6",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

@@ -1,0 +1,40 @@
+var startX = 0;
+var translateX = 0;
+var isActive = false;
+
+function touchStart(e) {
+  // console.log(JSON.stringify(e));
+  startX = e.touches[0].clientX;
+  isActive = true;
+  console.log(startX)
+
+}
+
+function touchMove(e, ownerInstance) {
+  // console.log(JSON.stringify(e));
+  var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+  console.log(JSON.stringify(instance))
+  var moveX = 0;
+  if(isActive) {
+    moveX = e.touches[0].clientX - startX;
+
+    if(moveX < 0) {
+      translateX = moveX;
+      instance.setStyle({
+        transform: 'translate3d(' + action.translateX + 'rpx, 0rpx, 0rpx)'
+      })
+    }else{
+      translateX = 0;
+    }
+  }
+}
+
+function touchEnd(e) {
+  console.log(JSON.stringify(e))
+}
+module.exports = {
+  touchStart: touchStart,
+  touchMove: touchMove,
+  touchEnd: touchEnd,
+  translateX: translateX,
+}

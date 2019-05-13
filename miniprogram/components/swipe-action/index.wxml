@@ -1,0 +1,6 @@
+<view class="swipe-action-wrapper">
+  <view class="swipe-action-ctn" bindtouchstart="{{action.touchStart}}" bindtouchmove="{{action.touchMove}}">
+    <slot />
+  </view>
+</view>
+<wxs module="action" src="./index.wxs" />

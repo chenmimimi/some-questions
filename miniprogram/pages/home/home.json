@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "fun-tab": "../../components/fun-tabs/index"
+    "fun-tab": "../../components/fun-tabs/index",
+    "swipe-acton": "../../components/swipe-action/index"
   }
 }

@@ -4,15 +4,30 @@
   <view class="top-nav">
     <fun-tab items="{{['待处理', '已处理']}}" onChange="{{changeTab}}"/>
   </view>
-  <view class="item" data-id="{{item._id}}" wx:key="{{index}}" wx:for="{{list}}" bindtap="toAdviseDetail">
-    <text class="title">{{item.title}}</text>
-    <view class='extra'> 
-      <text class="time">2019-04-30 12:12:12</text> 
+  <swipe-acton >
+    <view class="item" data-id="{{item._id}}" wx:key="{{index}}" wx:for="{{list}}" bindtap="toAdviseDetail">
+      <text class="title">{{item.title}}</text>
+      <view class='extra'>
+        <text class="time">2019-04-30 12:12:12</text>
+      </view>
+      <view class="operate detail">
+        <span class="like"><image class='like-image' src='../../images/like.png' />20</span>
+        <span class="discuss"><image class='discuss-image' src='../../images/discuss.png' />20</span>
+      </view>
     </view>
-    <view class="operate detail">
-      <span class="like"><image class='like-image' src='../../images/like.png' />20</span>
-      <span class="discuss"><image class='discuss-image' src='../../images/discuss.png' />20</span>
+  </swipe-acton>
+  <swipe-acton >
+    <view class="item" data-id="{{item._id}}" wx:key="{{index}}" wx:for="{{list}}" bindtap="toAdviseDetail">
+      <text class="title">{{item.title}}</text>
+      <view class='extra'>
+        <text class="time">2019-04-30 12:12:12</text>
+      </view>
+      <view class="operate detail">
+        <span class="like"><image class='like-image' src='../../images/like.png' />20</span>
+        <span class="discuss"><image class='discuss-image' src='../../images/discuss.png' />20</span>
+      </view>
     </view>
-  </view>
+  </swipe-acton>
+
   <navigator class='add' url="../advise/advise" open-type="navigate"><image src='../../images/add.png' /></navigator>
 </view>
