@@ -10,3 +10,18 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
+
+## 色彩搭配
+- 主色 #00c2b3   阴影 rgb(0,194,179, .2)   背景色 #5dd5c8
+- 次要 #fc6c38   阴影 rgb(252,108,56, 0.2)
+
+- 详情 
+  - title #424a5e 加粗
+  - description #61687c
+  - time  #bbb
+
+
+- 评论/回复  
+  - name #424a5e
+  - main #666
+  - time #bbb

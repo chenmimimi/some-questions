@@ -3,28 +3,18 @@
 }
 .advise-detail-title{
   color: #424a5e;
-  font-size: 34rpx;
+  font-size: 36rpx;
   font-weight: bolder;
 }
 .advise-detail-description{
   color: #61687c;
-  font-size: 28rpx;
+  font-size: 30rpx;
   margin-top: 8rpx;
-}
-.advise-page-title{
-  height: 88rpx;
-  padding: 0 20rpx;
-  box-shadow:0 0 4rpx #76D572;
 }
 .extra{
   color: #bbb;
   font-size: 24rpx;
   margin-top: 12rpx;
-}
-
-.advise-page-dec{
-  margin-top: 50rpx;
-  box-shadow:0 0 4rpx #76D572 inset; 
 }
 .operate{
   margin-top: 40rpx;
@@ -36,19 +26,15 @@
   line-height: 88rpx;
   text-align: center;
   font-size: 34rpx;
-  color: #fff;
   border: none;
   box-sizing: border-box;
 }
 .reply{
-  /* background-color: #fc6c38; */
   border-radius: 5rpx 0 0 5rpx;
   color: #fc6c38;
   border: 2rpx solid #fc6c38;
-  /* border-right: 1px solid #fc6c38; */
 }
 .comment{
-  /* background-color: ##00c2b3; */
   border-radius: 0 5rpx 5rpx 0;
   color: #00c2b3;
   border: 2rpx solid #00c2b3;
@@ -57,7 +43,6 @@
 .comment-detail,.reply-detail{
   padding-top: 20rpx;
   margin-top: 50rpx;
-  /* box-shadow: 0 0 40rpx rgba(3,0,0,.1); */
 }
 .reply-detail{
   margin-bottom: 60rpx;

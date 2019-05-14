@@ -5,13 +5,13 @@
   </view>
   <view class="item" data-id="{{item._id}}" wx:key="{{index}}" wx:for="{{list}}" bindtap="selectItem" bindtap="toAdviseDetail">
     <text class="title">{{item.title}}</text>
-    <view class='extra'> 
-      <text class="time">2019-04-30 12:12:12</text> 
+    <view class='extra'>
+      <text class="time">2019-04-30 12:12:12</text>
     </view>
     <span class="operate detail">
       <span class="like"><image class='like-image' src='../../images/like.png' />20</span>
       <span class="discuss"><image class='discuss-image' src='../../images/discuss.png' />20</span>
     </span>
   </view>
-  <navigator class='add' url="../advise/advise" open-type="navigate"><image src='../../images/add.png' /></navigator>
+  <navigator class='add' url="../advise/advise" open-type="navigate"><image src='../../images/add1.png' /></navigator>
 </view>

@@ -12,10 +12,6 @@
   border-bottom: 1rpx solid #E8E8E8;
   padding-bottom: 0;
 }
-.active{
-  border-bottom: none;
-  box-shadow: 1rpx 4rpx 10rpx rgba(83, 163, 80, 0.6);
-}
 icon{
   float: right;
   vertical-align: top;
@@ -43,7 +39,7 @@ icon{
   line-height: 40rpx;
 }
 .discuss{
-  color: rgb(118,213,114);
+  color: #00c2b3;
 }
 .discuss-image, .like-image{
   vertical-align: middle;
@@ -54,7 +50,7 @@ icon{
 }
 .go-discuss{
   line-height: 80rpx;
-  background-color: rgb(118,213,114);
+  background-color: #00c2b3;
   color: #fff;
   margin-bottom: 30rpx;
   font-weight: bolder;

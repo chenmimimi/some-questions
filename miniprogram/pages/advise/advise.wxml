@@ -2,5 +2,5 @@
 <view class="advise-page">
   <input class="advise-page-title" placeholder="请输入标题" auto-focus bindinput="bindInput"/>
   <textarea class="advise-page-dec" id="" cols="30" rows="10" placeholder="请输入描述" bindinput="bindTextarea"></textarea>
-  <button class="{{(!inputValue || !textareaValue) ? 'disabled': ''}}" bindtap="addAdvise" disabled="{{!inputValue || !textareaValue }}"> 提 交 建 议</button>
+  <view class="{{(!inputValue || !textareaValue) ? 'disabled submit': 'submit'}}" bindtap="addAdvise" disabled="{{!inputValue || !textareaValue }}"> 提 交 建 议</view>
 </view>

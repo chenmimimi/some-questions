@@ -7,26 +7,25 @@
 .advise-page-title{
   height: 88rpx;
   padding: 0 20rpx;
-  box-shadow:0 0 4rpx #FF6666;
+  box-shadow:0 0 4rpx #00c2b3;
 }
 .advise-page-dec{
   box-sizing: border-box;
   padding: 20rpx;
   width: 100%;
   margin-top: 50rpx;
-  box-shadow:0 0 4rpx #FF6666; 
+  box-shadow:0 0 4rpx #00c2b3;
 }
 .disabled{
-  background-color: #FF6666 !important;
+  background-color: #5dd5c8 !important;
   color: #fff !important;
-  opacity: 0.5;
 }
-button{
+.submit{
   margin-top: 70rpx;
   height: 100rpx;
   line-height: 100rpx;
   text-align: center;
-  font-size: 38rpx;
-  background-color: #FF6666;
+  font-size: 36rpx;
+  background-color: #5dd5c8;
   color: #fff;
 }

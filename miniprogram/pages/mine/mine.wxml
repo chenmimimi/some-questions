@@ -29,5 +29,5 @@
     </view>
   </swipe-acton>
 
-  <navigator class='add' url="../advise/advise" open-type="navigate"><image src='../../images/add.png' /></navigator>
+  <navigator class='add' url="../advise/advise" open-type="navigate"><image src='../../images/add1.png' /></navigator>
 </view>
