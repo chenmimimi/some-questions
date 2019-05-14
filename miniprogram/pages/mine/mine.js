@@ -33,7 +33,7 @@ Page({
     const id = event.currentTarget.dataset.id
     wx.navigateTo({
       //目的页面地址
-      url: "../adviseDetail/adviseDetail?id=" + id,
+      url: "../commentDetail/commentDetail?id=" + id,
       success: function(res){},
     })
   },

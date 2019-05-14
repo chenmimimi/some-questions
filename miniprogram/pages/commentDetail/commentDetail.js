@@ -1,14 +1,51 @@
-// miniprogram/pages/adviseDetail/adviseDetail.js
+// miniprogram/pages/discussDetail/dicussDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    from: '',
   },
 
-  getData: function(id) {
+  bindTextarea(e) {
+    this.setData({
+      textareaValue: e.detail.value
+    })
+  },
+
+  bindInput(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
+  
+  addAdvise: function () {
+    const db = wx.cloud.database()
+    db.collection('advise').add({
+      // data 字段表示需新增的 JSON 数据
+      data: {
+        title: this.data.inputValue,
+        description: this.data.textareaValue,
+      },
+      success(res) {
+        wx.showToast({
+          title: '提交建议成功',
+          icon: 'success',
+          duration: 2000
+        })
+        // setTimeout(() => {
+        //   wx.navigateTo({
+        //     url: '../home/home'
+        //   })
+        // }, 1900)
+        
+        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+      }
+    })
+  },
+
+  getDiscussDetail: function(id) {
     const db = wx.cloud.database()
     db.collection('advise').where({
       _id: id,
@@ -19,25 +56,20 @@ Page({
       console.log(res.data)
     })
   },
-
-  selectItem(event) {
-    this.setData({
-      selectId: event.currentTarget.dataset.index
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData(options.id)
+    this.getDiscussDetail(options.id)
+    this.setData({
+      from: options.from
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
