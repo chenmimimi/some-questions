@@ -8,8 +8,8 @@
     <slot />
   </view>
   <view class="swipe-action-options" data-width="{{optionWidth}}">
-    <view class="swipe-action-option" bindtap="onLeftTap"><text>{{leftText}}</text></view>
-    <view class="swipe-action-option swipe-action-option-waring" bindtap="onRightTap"><text>{{rightText}}</text></view>
+    <view class="swipe-action-option" bindtap="onLeftTap">{{leftText}}</view>
+    <view class="swipe-action-option swipe-action-option-right" bindtap="onRightTap">{{rightText}}</view>
   </view>
 </view>
 <wxs module="action" src="./index.wxs" />

@@ -11,7 +11,7 @@ Component({
     rightText: {
       type: 'string',
       value: '删除'
-    }
+    },
   },
 
   /**

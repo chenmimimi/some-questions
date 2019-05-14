@@ -5,7 +5,6 @@ var isActive = false;
 var optionWidth = 0;
 
 function touchStart(e, ownerInstance) {
-  // console.log(JSON.stringify(e));
   var instance = ownerInstance.selectComponent('.swipe-action-options');
   optionWidth = instance.getDataset().width;
   startX = e.touches[0].clientX;
@@ -17,7 +16,7 @@ function touchMove(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
   var moveX = 0;
   if(isMoving) {
-    moveX = e.touches[0].clientX - startX + (isActive?-optionWidth:0);
+    moveX = e.touches[0].clientX - startX + (isActive? -optionWidth: 0);
     if(moveX < 0 && moveX > -optionWidth) {
       translateX = moveX;
     }else if(moveX <= -optionWidth){
@@ -36,11 +35,7 @@ function touchEnd(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
   isMoving = false;
   if(translateX > -optionWidth/2){
-    instance.setStyle({
-      'transform': 'translate3d(0px, 0px, 0px)',
-      'transition': '.3s all ease-in-out',
-    });
-    isActive = false;
+    closeOption(instance);
   }else{
     translateX = -optionWidth;
     instance.setStyle({
@@ -54,17 +49,21 @@ function touchEnd(e, ownerInstance) {
 
 function onTap(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
-  console.log(JSON.stringify(e))
   if(isActive){
-    translateX = 0;
-    instance.setStyle({
-      'transform': 'translate3d(0px, 0px, 0px)',
-      'transition': '.3s all ease-in-out',
-    });
-    isActive = false;
+    closeOption(instance)
   }else{
     ownerInstance.triggerEvent('onTap', {}, {});
   }
+}
+
+//关闭操作项
+function closeOption(instance) {
+  translateX = 0;
+  instance.setStyle({
+    'transform': 'translate3d(0px, 0px, 0px)',
+    'transition': '.3s all ease-in-out',
+  });
+  isActive = false;
 }
 
 module.exports = {
