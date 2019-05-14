@@ -1,6 +1,9 @@
 /* miniprogram/pages/home.wxss */
-.home-page-container{
+.mine-page-container{
   padding: 2rpx;
+}
+.top-nav{
+  margin-bottom: 10rpx;
 }
 .item{
   position: relative;
@@ -47,47 +50,13 @@ icon{
   margin-top: -5rpx;
 }
 .operate{
-  position: absolute;
-  right: 30rpx;
-  bottom: 0rpx;
-  width: 160rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  text-align: center;
-  border-radius: 5rpx;
-  font-size: 30rpx;
-}
-.go-discuss{
-  line-height: 80rpx;
-  background-color: rgb(118,213,114);
-  color: #fff;
-  margin-bottom: 30rpx;
-  font-weight: bolder;
-}
-.operate.detail{
   float: right;
   text-align: right;
   font-size: 26rpx;
   width: 200rpx;
+  height: 78rpx;
+  line-height: 100rpx;
   background-color:#fff;
-  bottom: 0;
-}
-
-
-.top-nav{
-  margin-bottom: 10rpx;
-}
-
-.active{
-  border-bottom: none;
-  box-shadow: 1rpx 4rpx 10rpx rgba(83, 163, 80, 0.6);
-}
-
-.bottom-nav{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 .add{
   width: 80rpx;
@@ -97,7 +66,6 @@ icon{
   left: 50%;
   margin-left: -40rpx;
   opacity: 0.7;
-  /* box-shadow: 0 6rp x 10rpx rgb(252,108,56, 0.4); */
 }
 .add image{
   width: 100%;
