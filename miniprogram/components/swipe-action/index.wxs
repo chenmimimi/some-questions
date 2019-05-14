@@ -1,6 +1,7 @@
 function touchStart(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-options');
   var state = ownerInstance.getState();
+  state.translateX = state.translateX || 0;
   state.optionWidth = instance.getDataset().width;
   state.startX = e.touches[0].clientX;
   state.isMoving = true;
@@ -27,40 +28,67 @@ function touchMove(e, ownerInstance) {
 }
 
 function touchEnd(e, ownerInstance) {
-  var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+
   var state = ownerInstance.getState();
+
   state.isMoving = false;
+
   if(state.translateX > -state.optionWidth/2){
-    closeOption(instance,state);
+    closeOption(ownerInstance);
   }else{
-    state.translateX = -state.optionWidth;
-    instance.setStyle({
-      'transform': 'translate3d(-' + state.optionWidth + 'px, 0px, 0px)',
-      'transition': '.3s all ease-in-out',
-    });
-    state.isActive = true;
+    openOption(ownerInstance);
     return false;
   }
 }
 
 function onTap(e, ownerInstance) {
-  var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+
   var state = ownerInstance.getState();
+
   if(state.isActive){
-    closeOption(instance,state)
+    closeOption(ownerInstance);
   }else{
     ownerInstance.triggerEvent('onTap', {}, {});
   }
 }
 
+function onMaskTouch(e, ownerInstance) {
+  closeOption(ownerInstance)
+}
+
+//展开操作项
+function openOption(ownerInstance) {
+
+  var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+  var wrapperInstance = ownerInstance.selectComponent('.swipe-action-wrapper');
+  var state = ownerInstance.getState();
+  state.translateX = -state.optionWidth;
+
+  wrapperInstance.addClass('active');
+  instance.setStyle({
+    'transform': 'translate3d(-' + state.optionWidth + 'px, 0px, 0px)',
+    'transition': '.3s all ease-in-out',
+  });
+
+  state.isActive = true;
+
+}
 //关闭操作项
-function closeOption(instance,state) {
+function closeOption(ownerInstance) {
+
+  var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+  var wrapperInstance = ownerInstance.selectComponent('.swipe-action-wrapper');
+  var state = ownerInstance.getState();
   state.translateX = 0;
+
+  wrapperInstance.removeClass('active');
   instance.setStyle({
     'transform': 'translate3d(0px, 0px, 0px)',
     'transition': '.3s all ease-in-out',
   });
+
   state.isActive = false;
+
 }
 
 module.exports = {
@@ -68,4 +96,5 @@ module.exports = {
   touchMove: touchMove,
   touchEnd: touchEnd,
   onTap: onTap,
+  onMaskTouch: onMaskTouch,
 }

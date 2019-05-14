@@ -30,3 +30,19 @@
 .swipe-action-option-right {
   background: #FF6666;
 }
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+.active {
+  z-index: 101;
+}
+.active .mask {
+  display: block;
+  z-index: 100;
+}
