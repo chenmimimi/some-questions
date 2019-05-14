@@ -1,6 +1,15 @@
 <view class="swipe-action-wrapper">
-  <view class="swipe-action-ctn" bindtouchstart="{{action.touchStart}}" bindtouchmove="{{action.touchMove}}">
+  <view class="swipe-action-ctn"
+    bindtouchstart="{{action.touchStart}}"
+    bindtouchmove="{{action.touchMove}}"
+    bindtouchend="{{action.touchEnd}}"
+    bindtap="{{action.onTap}}"
+  >
     <slot />
+  </view>
+  <view class="swipe-action-options">
+    <view class="swipe-action-option" bindtap="onOption1Tap">已处理</view>
+    <view class="swipe-action-option swipe-action-option-waring" bindtap="onOption2Tap">删除</view>
   </view>
 </view>
 <wxs module="action" src="./index.wxs" />

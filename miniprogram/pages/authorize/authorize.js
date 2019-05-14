@@ -29,10 +29,10 @@ Page({
             //用户按了允许授权按钮
             var that = this;
             //插入登录的用户的相关信息到数据库
-            
+
             //授权成功后，跳转进入小程序首页
             wx.switchTab({
-                url: '/pages/index/index'  
+                url: '/pages/home/home'  
             })
         } else {
             //用户按了拒绝按钮

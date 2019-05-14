@@ -1,40 +1,70 @@
 var startX = 0;
 var translateX = 0;
+var isMoving = false;
 var isActive = false;
 
 function touchStart(e) {
   // console.log(JSON.stringify(e));
   startX = e.touches[0].clientX;
-  isActive = true;
+  isMoving = true;
   console.log(startX)
 
 }
 
 function touchMove(e, ownerInstance) {
-  // console.log(JSON.stringify(e));
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
-  console.log(JSON.stringify(instance))
   var moveX = 0;
-  if(isActive) {
-    moveX = e.touches[0].clientX - startX;
-
-    if(moveX < 0) {
+  if(isMoving) {
+    moveX = e.touches[0].clientX - startX + (isActive?-100:0);
+    if(moveX < 0 && moveX > -100) {
       translateX = moveX;
-      instance.setStyle({
-        transform: 'translate3d(' + action.translateX + 'rpx, 0rpx, 0rpx)'
-      })
+    }else if(moveX <= -100){
+      translateX = -100;
     }else{
       translateX = 0;
     }
+    instance.getDataset();
+    instance.setStyle({
+      'transform': 'translate3d(' + translateX + 'px, 0px, 0px)'
+    })
   }
 }
 
-function touchEnd(e) {
-  console.log(JSON.stringify(e))
+function touchEnd(e, ownerInstance) {
+  var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+  isMoving = false;
+  if(translateX > -40){
+    instance.setStyle({
+      'transform': 'translate3d(0px, 0px, 0px)',
+      'transition': '.3s all ease-in-out',
+    });
+    isActive = false;
+  }else{
+    translateX = -100;
+    instance.setStyle({
+      'transform': 'translate3d(-100px, 0px, 0px)',
+      'transition': '.3s all ease-in-out',
+    });
+    isActive = true;
+  }
 }
+
+function onTap(e, ownerInstance) {
+  var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+  if(isActive){
+    instance.setStyle({
+      'transform': 'translate3d(0px, 0px, 0px)',
+      'transition': '.3s all ease-in-out',
+    });
+    isActive = false;
+  }else{
+    instance.callMethod('onTap')
+  }
+}
+
 module.exports = {
   touchStart: touchStart,
   touchMove: touchMove,
   touchEnd: touchEnd,
-  translateX: translateX,
+  onTap: onTap,
 }

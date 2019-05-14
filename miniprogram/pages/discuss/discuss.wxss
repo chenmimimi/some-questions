@@ -3,6 +3,9 @@
   padding: 4rpx;
   padding-right: 6rpx;
 }
+.top-nav{
+  margin-bottom: 10rpx;
+}
 .item{
   position: relative;
   padding: 20rpx 30rpx;

@@ -1,14 +1,14 @@
 <!--miniprogram/pages/discuss/discuss.wxml-->
 <view class="discuss-page-container">
-  <view class="item {{index === selectId && 'active'}}" data-index="{{index}}" wx:key="{{index}}" wx:for="{{list}}" bindtap="selectItem">
+  <view class="top-nav">
+    <fun-tab items="{{['全部', '待处理', '已处理']}}" onChange="{{changeTab}}"/>
+  </view>
+  <view class="item" data-id="{{item._id}}" wx:key="{{index}}" wx:for="{{list}}" bindtap="selectItem" bindtap="toAdviseDetail">
     <text class="title">{{item.title}}</text>
     <view class='extra'> 
       <text class="time">2019-04-30 12:12:12</text> 
     </view>
-    <navigator wx:if="{{index === selectId}}" url="../discussDetail/discussDetail?id={{item._id}}" open-type="navigate">
-      <span class='operate go-discuss'>去评论</span>
-    </navigator>
-    <span class="operate detail" wx:else>
+    <span class="operate detail">
       <span class="like"><image class='like-image' src='../../images/like.png' />20</span>
       <span class="discuss"><image class='discuss-image' src='../../images/discuss.png' />20</span>
     </span>

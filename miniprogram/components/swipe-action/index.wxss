@@ -1,3 +1,31 @@
 .swipe-action-wrapper {
   width: 100%;
+  position: relative;
+}
+.swipe-action-ctn {
+  position: relative;
+  z-index: 50;
+  background: #FFF;
+}
+.swipe-action-options {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  display: flex;
+}
+.swipe-action-option {
+  flex: 1;
+  width: 50%;
+  height: 100%;
+  font-size: 12px;
+  text-align: center;
+  justify-content: center;
+  color: #FFF;
+  background: #999;
+}
+
+.swipe-action-option-waring {
+  background: #FF0000;
 }

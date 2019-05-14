@@ -27,6 +27,7 @@ Page({
   },
 
   toAdviseDetail(event) {
+    console.log('xxx')
     return false
 
     const id = event.currentTarget.dataset.id
@@ -45,12 +46,20 @@ Page({
    */
   onLoad: function (options) {
     this.getData()
-    wx.login({
-      success(res) {
-        console.log(res)
-        wx.request()
-      }
-    })
+
+    wx.getUserInfo({
+        success: function (res) {
+            //从数据库获取用户信息
+            console.log(res)
+        }
+    });
+    // wx.getWeRunData({
+    //   success: function (res) {
+    //       //从数据库获取用户信息
+    //       console.log(res)
+    //   }
+    // });
+
   },
 
   /**
