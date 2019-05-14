@@ -4,7 +4,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    leftText: {
+      type: 'string',
+      value: '处理',
+    },
+    rightText: {
+      type: 'string',
+      value: '删除'
+    }
   },
 
   /**
@@ -18,9 +25,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    on123Tap(e) {
-      console.log(123333333)
-      this.triggerEvent('onTap', { e }, {});
+    onLeftTap(e) {
+      this.triggerEvent('onLeftTap', {}, {});
+    },
+    onRightTap(e) {
+      this.triggerEvent('onRightTap', {}, {});
     }
   }
 })
