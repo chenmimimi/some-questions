@@ -1,7 +1,13 @@
 /**app.wxss**/
+Page {
+  --cl-primary: #00c2b3;
+  --cl-highlight: #fc6c38;
+  --cl-warning: #FF0000;
+
+}
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-} 
+}

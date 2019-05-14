@@ -23,7 +23,7 @@
   text-align: center;
   justify-content: center;
   color: #FFF;
-  background: #999;
+  background: var(--cl-primary);
 }
 
 .swipe-action-option-waring {

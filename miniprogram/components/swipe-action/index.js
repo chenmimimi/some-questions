@@ -18,7 +18,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onTap(e) {
+    on123Tap(e) {
       console.log(123333333)
       this.triggerEvent('onTap', { e }, {});
     }
