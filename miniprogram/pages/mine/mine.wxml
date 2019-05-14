@@ -16,6 +16,7 @@
   >
     <view class="item">
       <text class="title">{{item.title}}</text>
+      <view class="dec">{{item.description}}</view>
       <view class='extra'>
         <text class="time">2019-04-30 12:12:12</text>
       </view>

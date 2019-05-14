@@ -9,9 +9,16 @@
   padding-bottom: 0;
 }
 .title{
-  color: #444;
-  font-size: 32rpx;
+  color: #424a5e;
+  font-size: 36rpx;
   font-weight: bold;
+}
+.dec{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color: #61687c;
+  font-size: 30rpx;
 }
 icon{
   float: right;

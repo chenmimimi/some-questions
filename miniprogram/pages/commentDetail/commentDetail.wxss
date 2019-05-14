@@ -1,5 +1,5 @@
 .comment-detail-page{
-  padding: 50rpx 50rpx;
+  padding: 40rpx;
 }
 .advise-detail-title{
   color: #424a5e;
