@@ -26,12 +26,12 @@ icon{
   line-height: 80rpx;
 }
 .like{
-  color: #FF6666;
+  color: var(--cl-highlight);
   margin-right: 20rpx;
   line-height: 40rpx;
 }
 .discuss{
-  color: rgb(118,213,114);
+  color: var(--cl-primary);
 }
 .like image, .discuss image{
   vertical-align: middle;
