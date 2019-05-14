@@ -27,15 +27,18 @@ Page({
   },
 
   toAdviseDetail(event) {
-    console.log('xxx')
-    return false
-
     const id = event.currentTarget.dataset.id
     wx.navigateTo({
       //目的页面地址
       url: "../commentDetail/commentDetail?id=" + id,
       success: function(res){},
     })
+  },
+  onConfirm(e) {
+    console.log('陈胖胖',e)
+  },
+  onDelete(e) {
+    console.log('又胖了',e)
   },
   test(e) {
     console.log(e)

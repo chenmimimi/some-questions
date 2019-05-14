@@ -8,8 +8,8 @@
     <slot />
   </view>
   <view class="swipe-action-options">
-    <view class="swipe-action-option" bindtap="onOption1Tap">已处理</view>
-    <view class="swipe-action-option swipe-action-option-waring" bindtap="onOption2Tap">删除</view>
+    <view class="swipe-action-option" bindtap="onLeftTap"><text>{{leftText}}</text></view>
+    <view class="swipe-action-option swipe-action-option-waring" bindtap="onRightTap"><text>{{rightText}}</text></view>
   </view>
 </view>
 <wxs module="action" src="./index.wxs" />

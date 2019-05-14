@@ -4,20 +4,17 @@
   <view class="top-nav">
     <fun-tab items="{{['待处理', '已处理']}}" onChange="{{changeTab}}"/>
   </view>
-  <swipe-acton bind:onTap="toAdviseDetail">
-    <view class="item" data-id="{{item._id}}" wx:key="{{index}}" wx:for="{{list}}">
-      <text class="title">{{item.title}}</text>
-      <view class='extra'>
-        <text class="time">2019-04-30 12:12:12</text>
-      </view>
-      <view class="operate detail">
-        <span class="like"><image class='like-image' src='../../images/like.png' />20</span>
-        <span class="discuss"><image class='discuss-image' src='../../images/discuss.png' />20</span>
-      </view>
-    </view>
-  </swipe-acton>
-  <swipe-acton bind:onTap="toAdviseDetail">
-    <view class="item" data-id="{{item._id}}" wx:key="{{index}}" wx:for="{{list}}">
+  <swipe-acton
+    bind:onTap="toAdviseDetail"
+    bind:onLeftTap="onConfirm"
+    bind:onRightTap="onDelete"
+    leftText="陈胖胖"
+    rightText="又胖了"
+    data-id="{{item._id}}"
+    wx:key="{{index}}"
+    wx:for="{{list}}"
+  >
+    <view class="item">
       <text class="title">{{item.title}}</text>
       <view class='extra'>
         <text class="time">2019-04-30 12:12:12</text>

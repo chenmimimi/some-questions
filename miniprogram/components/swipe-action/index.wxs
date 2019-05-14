@@ -51,6 +51,7 @@ function touchEnd(e, ownerInstance) {
 
 function onTap(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+  console.log(JSON.stringify(e))
   if(isActive){
     translateX = 0;
     instance.setStyle({
