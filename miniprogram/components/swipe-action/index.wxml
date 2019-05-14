@@ -11,5 +11,6 @@
     <view class="swipe-action-option" bindtap="onLeftTap">{{leftText}}</view>
     <view class="swipe-action-option swipe-action-option-right" bindtap="onRightTap">{{rightText}}</view>
   </view>
+  <view class="mask" bindtouchstart="{{action.onMaskTouch}}" />
 </view>
 <wxs module="action" src="./index.wxs" />
