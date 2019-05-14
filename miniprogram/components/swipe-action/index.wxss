@@ -11,20 +11,22 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 100px;
+  width: 120px;
   height: 100%;
   display: flex;
+  text-align: center;
+  line-height: 150rpx;
 }
 .swipe-action-option {
   flex: 1;
   width: 50%;
   height: 100%;
-  font-size: 12px;
+  font-size: 28rpx;
   text-align: center;
   color: #FFF;
-  background: var(--cl-primary);
+  background: #5dd5c8;
 }
 
 .swipe-action-option-waring {
-  background: #FF0000;
+  background: #FF6666;
 }

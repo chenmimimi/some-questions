@@ -14,11 +14,11 @@ function touchMove(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
   var moveX = 0;
   if(isMoving) {
-    moveX = e.touches[0].clientX - startX + (isActive?-100:0);
-    if(moveX < 0 && moveX > -100) {
+    moveX = e.touches[0].clientX - startX + (isActive?-120:0);
+    if(moveX < 0 && moveX > -120) {
       translateX = moveX;
-    }else if(moveX <= -100){
-      translateX = -100;
+    }else if(moveX <= -120){
+      translateX = -120;
     }else{
       translateX = 0;
     }
@@ -39,9 +39,9 @@ function touchEnd(e, ownerInstance) {
     });
     isActive = false;
   }else{
-    translateX = -100;
+    translateX = -120;
     instance.setStyle({
-      'transform': 'translate3d(-100px, 0px, 0px)',
+      'transform': 'translate3d(-120px, 0px, 0px)',
       'transition': '.3s all ease-in-out',
     });
     isActive = true;

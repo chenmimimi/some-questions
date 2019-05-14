@@ -1,7 +1,6 @@
 /* miniprogram/pages/home.wxss */
 .home-page-container{
-  padding: 4rpx;
-  padding-right: 6rpx;
+  padding: 2rpx;
 }
 .item{
   position: relative;
