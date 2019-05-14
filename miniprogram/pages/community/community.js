@@ -23,7 +23,7 @@ Page({
     const id = event.currentTarget.dataset.id
     wx.navigateTo({
       //目的页面地址
-      url: "../discussDetail/discussDetail?id=" + id,
+      url: "../commentDetail/commentDetail?id=" + id + "&from=community",
       success: function(res){},
     })
   },

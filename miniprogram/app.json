@@ -1,10 +1,9 @@
 {
   "pages": [
+    "pages/mine/mine",
+    "pages/commentDetail/commentDetail",
     "pages/authorize/authorize",
-    "pages/home/home",
-    "pages/adviseDetail/adviseDetail",
-    "pages/discussDetail/discussDetail",
-    "pages/discuss/discuss",
+    "pages/community/community",
     "pages/advise/advise",
     "pages/vent/vent",
     "pages/index/index",
@@ -26,13 +25,13 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/mine/mine",
         "text": "我的",
         "iconPath": "images/mine.png",
         "selectedIconPath": "images/mine1.png"
       },
       {
-        "pagePath": "pages/discuss/discuss",
+        "pagePath": "pages/community/community",
         "text": "社区",
         "iconPath": "images/community.png",
         "selectedIconPath": "images/community1.png"
