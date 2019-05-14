@@ -34,15 +34,17 @@ icon{
 .time{
   line-height: 80rpx;
 }
+.operate{
+  color: #999
+}
 .like{
-  color: var(--cl-highlight);
   margin-right: 20rpx;
   line-height: 40rpx;
 }
-.discuss{
-  color: var(--cl-primary);
+.reply{
+  margin-right: 20rpx;
 }
-.like image, .discuss image{
+.like image, .discuss image, .reply image{
   vertical-align: middle;
   margin-right: 10rpx;
   width: 30rpx;
@@ -53,7 +55,6 @@ icon{
   float: right;
   text-align: right;
   font-size: 26rpx;
-  width: 200rpx;
   height: 78rpx;
   line-height: 100rpx;
   background-color:#fff;

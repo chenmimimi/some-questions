@@ -13,15 +13,40 @@ Page({
   /**
    * 操作数据库相关
    */
+  getOtherData: function(data) {
+    for(let i = 0; i < data.length; i +=1) {
+      const db = wx.cloud.database()
+      db.collection('like').where({
+        adviseId: data[i]._id
+      }).count().then(res => {
+        data[i].like = res.total
+      })
+      db.collection('reply').where({
+        adviseId: data[i]._id
+      }).count().then(res => {
+        data[i].reply = res.total
+      })
+      db.collection('comment').where({
+        adviseId: data[i]._id
+      }).count().then(res => {
+        data[i].comment = res.total
+      })
+    }
+    setTimeout(() => {
+      this.setData({
+        list: data,
+      })
+    },2000)
+
+  },
+
   getData: function(openid) {
     const db = wx.cloud.database()
     db.collection('advise').where({
       _openid: openid,
+      status: 0,
     }).get().then(res => {
-      // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-      this.setData({
-        list: res.data
-      })
+      this.getOtherData(res.data)
     })
   },
   changeTab(e){
