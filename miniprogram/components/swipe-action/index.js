@@ -31,5 +31,21 @@ Component({
     onRightTap(e) {
       this.triggerEvent('onRightTap', {}, {});
     }
+  },
+
+  lifetimes: {
+    ready() {
+      const query = this.createSelectorQuery()
+      query.selectAll('.swipe-action-options').boundingClientRect()
+      query.exec((res) => {
+        const optionWidth = res[0].map((item,index) => {
+          console.log(item)
+          return item.width
+        })
+        this.setData({
+          optionWidth
+        })
+      })
+    }
   }
 })

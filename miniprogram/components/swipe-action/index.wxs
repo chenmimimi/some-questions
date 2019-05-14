@@ -2,9 +2,12 @@ var startX = 0;
 var translateX = 0;
 var isMoving = false;
 var isActive = false;
+var optionWidth = 0;
 
-function touchStart(e) {
+function touchStart(e, ownerInstance) {
   // console.log(JSON.stringify(e));
+  var instance = ownerInstance.selectComponent('.swipe-action-options');
+  optionWidth = instance.getDataset().width;
   startX = e.touches[0].clientX;
   isMoving = true;
 
@@ -14,34 +17,34 @@ function touchMove(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
   var moveX = 0;
   if(isMoving) {
-    moveX = e.touches[0].clientX - startX + (isActive?-120:0);
-    if(moveX < 0 && moveX > -120) {
+    moveX = e.touches[0].clientX - startX + (isActive?-optionWidth:0);
+    if(moveX < 0 && moveX > -optionWidth) {
       translateX = moveX;
-    }else if(moveX <= -120){
-      translateX = -120;
+    }else if(moveX <= -optionWidth){
+      translateX = -optionWidth;
     }else{
       translateX = 0;
     }
-    instance.getDataset();
     instance.setStyle({
       'transform': 'translate3d(' + translateX + 'px, 0px, 0px)'
     })
   }
+  return false;
 }
 
 function touchEnd(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
   isMoving = false;
-  if(translateX > -40){
+  if(translateX > -optionWidth/2){
     instance.setStyle({
       'transform': 'translate3d(0px, 0px, 0px)',
       'transition': '.3s all ease-in-out',
     });
     isActive = false;
   }else{
-    translateX = -120;
+    translateX = -optionWidth;
     instance.setStyle({
-      'transform': 'translate3d(-120px, 0px, 0px)',
+      'transform': 'translate3d(-' + optionWidth + 'px, 0px, 0px)',
       'transition': '.3s all ease-in-out',
     });
     isActive = true;
@@ -60,7 +63,7 @@ function onTap(e, ownerInstance) {
     });
     isActive = false;
   }else{
-    ownerInstance.triggerEvent('onTap', { abc: 1234 }, {});
+    ownerInstance.triggerEvent('onTap', {}, {});
   }
 }
 

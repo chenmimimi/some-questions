@@ -7,7 +7,7 @@
   >
     <slot />
   </view>
-  <view class="swipe-action-options">
+  <view class="swipe-action-options" data-width="{{optionWidth}}">
     <view class="swipe-action-option" bindtap="onLeftTap"><text>{{leftText}}</text></view>
     <view class="swipe-action-option swipe-action-option-waring" bindtap="onRightTap"><text>{{rightText}}</text></view>
   </view>
