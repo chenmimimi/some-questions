@@ -25,7 +25,7 @@ Page({
     })
   },
   changeTab(e){
-    // console.log(e)
+    console.log(e)
   },
 
   toAdviseDetail(event) {

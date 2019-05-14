@@ -1,31 +1,26 @@
-var startX = 0;
-var translateX = 0;
-var isMoving = false;
-var isActive = false;
-var optionWidth = 0;
-
 function touchStart(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-options');
-  optionWidth = instance.getDataset().width;
-  startX = e.touches[0].clientX;
-  isMoving = true;
-
+  var state = ownerInstance.getState();
+  state.optionWidth = instance.getDataset().width;
+  state.startX = e.touches[0].clientX;
+  state.isMoving = true;
 }
 
 function touchMove(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
+  var state = ownerInstance.getState();
   var moveX = 0;
-  if(isMoving) {
-    moveX = e.touches[0].clientX - startX + (isActive? -optionWidth: 0);
-    if(moveX < 0 && moveX > -optionWidth) {
-      translateX = moveX;
-    }else if(moveX <= -optionWidth){
-      translateX = -optionWidth;
+  if(state.isMoving) {
+    moveX = e.touches[0].clientX - state.startX + (state.isActive? -state.optionWidth: 0);
+    if(moveX < 0 && moveX > -state.optionWidth) {
+      state.translateX = moveX;
+    }else if(moveX <= -state.optionWidth){
+      state.translateX = -state.optionWidth;
     }else{
-      translateX = 0;
+      state.translateX = 0;
     }
     instance.setStyle({
-      'transform': 'translate3d(' + translateX + 'px, 0px, 0px)'
+      'transform': 'translate3d(' + state.translateX + 'px, 0px, 0px)'
     })
   }
   return false;
@@ -33,37 +28,39 @@ function touchMove(e, ownerInstance) {
 
 function touchEnd(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
-  isMoving = false;
-  if(translateX > -optionWidth/2){
-    closeOption(instance);
+  var state = ownerInstance.getState();
+  state.isMoving = false;
+  if(state.translateX > -state.optionWidth/2){
+    closeOption(instance,state);
   }else{
-    translateX = -optionWidth;
+    state.translateX = -state.optionWidth;
     instance.setStyle({
-      'transform': 'translate3d(-' + optionWidth + 'px, 0px, 0px)',
+      'transform': 'translate3d(-' + state.optionWidth + 'px, 0px, 0px)',
       'transition': '.3s all ease-in-out',
     });
-    isActive = true;
+    state.isActive = true;
     return false;
   }
 }
 
 function onTap(e, ownerInstance) {
   var instance = ownerInstance.selectComponent('.swipe-action-ctn');
-  if(isActive){
-    closeOption(instance)
+  var state = ownerInstance.getState();
+  if(state.isActive){
+    closeOption(instance,state)
   }else{
     ownerInstance.triggerEvent('onTap', {}, {});
   }
 }
 
 //关闭操作项
-function closeOption(instance) {
-  translateX = 0;
+function closeOption(instance,state) {
+  state.translateX = 0;
   instance.setStyle({
     'transform': 'translate3d(0px, 0px, 0px)',
     'transition': '.3s all ease-in-out',
   });
-  isActive = false;
+  state.isActive = false;
 }
 
 module.exports = {
