@@ -1,6 +1,6 @@
 <!--miniprogram/pages/home.wxml-->
 
-<view class='home-page-container'>
+<view class='mine-page-container'>
   <view class="top-nav">
     <fun-tab items="{{['待处理', '已处理']}}" onChange="{{changeTab}}"/>
   </view>
@@ -19,10 +19,10 @@
       <view class="dec">{{item.description}}</view>
       <view class='extra'>
         <text class="time">2019-04-30 12:12:12</text>
-      </view>
-      <view class="operate detail">
-        <span class="like"><image class='like-image' src='../../images/like.png' />20</span>
-        <span class="discuss"><image class='discuss-image' src='../../images/discuss.png' />20</span>
+        <view class="operate">
+          <span class="like"><image class='like-image' src='../../images/like.png' />20</span>
+          <span class="discuss"><image class='discuss-image' src='../../images/discuss.png' />20</span>
+        </view>
       </view>
     </view>
   </swipe-acton>

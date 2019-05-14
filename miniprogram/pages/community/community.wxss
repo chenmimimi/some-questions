@@ -1,7 +1,6 @@
-/* miniprogram/pages/discuss/discuss.wxss */
-.discuss-page-container{
-  padding: 4rpx;
-  padding-right: 6rpx;
+/* miniprogram/pages/home.wxss */
+.mine-page-container{
+  padding: 2rpx;
 }
 .top-nav{
   margin-bottom: 10rpx;
@@ -12,14 +11,21 @@
   border-bottom: 1rpx solid #E8E8E8;
   padding-bottom: 0;
 }
+.title{
+  color: #424a5e;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.dec{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color: #61687c;
+  font-size: 30rpx;
+}
 icon{
   float: right;
   vertical-align: top;
-}
-.title{
-  color: #444;
-  font-size: 32rpx;
-  font-weight: bold;
 }
 .extra{
   font-size: 26rpx;
@@ -28,48 +34,29 @@ icon{
 .time{
   line-height: 80rpx;
 }
-.operate.detail{
-  float: right;
-  text-align: right;
-  font-size: 26rpx;
-}
 .like{
-  color: #FF6666;
+  color: var(--cl-highlight);
   margin-right: 20rpx;
   line-height: 40rpx;
 }
 .discuss{
-  color: #00c2b3;
+  color: var(--cl-primary);
 }
-.discuss-image, .like-image{
+.like image, .discuss image{
   vertical-align: middle;
   margin-right: 10rpx;
   width: 30rpx;
   height: 30rpx;
   margin-top: -5rpx;
 }
-.go-discuss{
-  line-height: 80rpx;
-  background-color: #00c2b3;
-  color: #fff;
-  margin-bottom: 30rpx;
-  font-weight: bolder;
-}
 .operate{
-  position: absolute;
-  right: 30rpx;
-  bottom: 0rpx;
-  width: 160rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  text-align: center;
-  border-radius: 5rpx;
-  font-size: 30rpx;
-}
-.detail{
+  float: right;
+  text-align: right;
+  font-size: 26rpx;
   width: 200rpx;
+  height: 78rpx;
+  line-height: 100rpx;
   background-color:#fff;
-  bottom: 0;
 }
 .add{
   width: 80rpx;
@@ -84,3 +71,5 @@ icon{
   width: 100%;
   height: 100%;
 }
+
+/* rgb(118,213,114), #FF6666, #FFCC99, #CCCCCC */
