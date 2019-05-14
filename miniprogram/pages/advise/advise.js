@@ -28,19 +28,21 @@ Page({
       data: {
         title: this.data.inputValue,
         description: this.data.textareaValue,
+        status: 0,
+        createdAt: new Date(),
       },
       success(res) {
         wx.showToast({
           title: '提交建议成功',
           icon: 'success',
-          duration: 2000
+          duration: 2000,
         })
         setTimeout(() => {
           wx.navigateTo({
             url: '../home/home'
           })
         }, 1900)
-        
+
         // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
       }
     })

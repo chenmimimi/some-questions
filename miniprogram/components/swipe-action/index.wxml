@@ -1,15 +1,17 @@
 <view class="swipe-action-wrapper">
-  <view class="swipe-action-ctn"
-    bindtouchstart="{{action.touchStart}}"
-    bindtouchmove="{{action.touchMove}}"
-    bindtouchend="{{action.touchEnd}}"
-    bindtap="{{action.onTap}}"
-  >
-    <slot />
-  </view>
-  <view class="swipe-action-options" data-width="{{optionWidth}}">
-    <view class="swipe-action-option" bindtap="onLeftTap">{{leftText}}</view>
-    <view class="swipe-action-option swipe-action-option-right" bindtap="onRightTap">{{rightText}}</view>
+  <view class="swipe-action-main">
+    <view class="swipe-action-ctn"
+      bindtouchstart="{{action.touchStart}}"
+      bindtouchmove="{{action.touchMove}}"
+      bindtouchend="{{action.touchEnd}}"
+      bindtap="{{action.onTap}}"
+    >
+      <slot />
+    </view>
+    <view class="swipe-action-options" data-width="{{optionWidth}}">
+      <view class="swipe-action-option" bindtap="onLeftTap">{{leftText}}</view>
+      <view class="swipe-action-option swipe-action-option-right" bindtap="onRightTap">{{rightText}}</view>
+    </view>
   </view>
   <view class="mask" bindtouchstart="{{action.onMaskTouch}}" />
 </view>
