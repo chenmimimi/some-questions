@@ -39,10 +39,11 @@
   bottom: 0;
   display: none;
 }
-.active {
+.active .swipe-action-options, .active .swipe-action-ctn {
   z-index: 101;
 }
 .active .mask {
   display: block;
   z-index: 100;
+  background: rgba(0,0,0,.5);
 }
