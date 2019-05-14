@@ -2,7 +2,7 @@
 
 <view class='home-page-container'>
   <view class="top-nav">
-    <fun-tab items="{{['待处理', '已处理']}}" onChange="{{changeTab}}"/>
+    <fun-tab items="{{['待处理', '已处理']}}" bind:onChange="changeTab"/>
   </view>
   <swipe-acton
     bind:onTap="toAdviseDetail"
