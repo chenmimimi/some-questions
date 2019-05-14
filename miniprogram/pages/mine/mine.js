@@ -13,9 +13,11 @@ Page({
   /**
    * 操作数据库相关
    */
-  getData: function(options) {
+  getData: function(openid) {
     const db = wx.cloud.database()
-    db.collection('advise').get().then(res => {
+    db.collection('advise').where({
+      _openid: openid,
+    }).get().then(res => {
       // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
       this.setData({
         list: res.data
@@ -48,20 +50,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData()
+    const that = this
 
-    wx.getUserInfo({
-        success: function (res) {
-            //从数据库获取用户信息
-            console.log(res)
-        }
-    });
-    // wx.getWeRunData({
-    //   success: function (res) {
-    //       //从数据库获取用户信息
-    //       console.log(res)
-    //   }
-    // });
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'login',
+      // 传给云函数的参数
+      success(res) {
+        that.getData(res.result.openid)
+      },
+      fail: console.error
+    })
 
   },
 
