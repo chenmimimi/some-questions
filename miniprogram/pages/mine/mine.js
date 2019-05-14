@@ -27,6 +27,9 @@ Page({
   },
 
   toAdviseDetail(event) {
+    console.log('xxx')
+    return false
+
     const id = event.currentTarget.dataset.id
     wx.navigateTo({
       //目的页面地址
@@ -34,13 +37,16 @@ Page({
       success: function(res){},
     })
   },
+  test(e) {
+    console.log(e)
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getData()
-    
+
     wx.getUserInfo({
         success: function (res) {
             //从数据库获取用户信息
