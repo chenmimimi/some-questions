@@ -83,3 +83,11 @@
   margin-top: 20rpx;
   color: #666;
 }
+
+.ipt {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #DDD;
+}
