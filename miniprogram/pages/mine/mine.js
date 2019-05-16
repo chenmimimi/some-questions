@@ -46,7 +46,21 @@ Page({
     })
   },
   onDelete(e) {
-    console.log('又胖了',e)
+    const currentTabIndex = this.data.currentTabIndex
+    const id = e.currentTarget.dataset.id
+    const that = this
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'delete-question',
+      data: {
+        id,
+      },
+      // 传给云函数的参数
+      success(res) {
+        that.getData(currentTabIndex)
+      },
+      fail: console.error
+    })
   },
   onLikeTap(e) {
     console.log(111,e);
@@ -67,6 +81,7 @@ Page({
       },
       // 传给云函数的参数
       success(res) {
+        console.log(res)
         that.setData({
           list: res.result.adviseList.data,
         })

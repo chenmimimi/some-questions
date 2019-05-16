@@ -22,29 +22,25 @@ Page({
   },
 
   addAdvise: function () {
-    const db = wx.cloud.database()
-    db.collection('advise').add({
-      // data 字段表示需新增的 JSON 数据
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'add-question',
       data: {
         title: this.data.inputValue,
         description: this.data.textareaValue,
-        status: 0,
-        createdAt: new Date(),
       },
+      // 传给云函数的参数
       success(res) {
         wx.showToast({
           title: '提交建议成功',
           icon: 'success',
           duration: 2000,
         })
-        setTimeout(() => {
-          wx.navigateTo({
-            url: '../home/home'
-          })
-        }, 1900)
-
-        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-      }
+        wx.navigateTo({
+          url: '../mine/mine'
+        })
+      },
+      fail: console.error
     })
   },
 

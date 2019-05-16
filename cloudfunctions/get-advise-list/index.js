@@ -11,7 +11,7 @@ exports.main = async (event, context) => {
   }
   if(event.type === 'mine') {
     adviseCondition = {
-      _openid: wxContext.OPENID,
+      openid: wxContext.OPENID,
       status: event.status,
     }
   }
@@ -33,6 +33,8 @@ exports.main = async (event, context) => {
     }).count()
     adviseList.data[i].comment = commentPromise.total
   }
+
+  console.log(adviseList)
 
   return {
     adviseList
