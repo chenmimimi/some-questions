@@ -1,7 +1,7 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/cloudfunctions/login/node_modules
+/cloudfunctions/*/node_modules
 
 # /.vscode
 

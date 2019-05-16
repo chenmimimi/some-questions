@@ -12,14 +12,12 @@ Page({
                 if (res.authSetting['scope.userInfo']) {
                     wx.getUserInfo({
                         success: function (res) {
-                            //从数据库获取用户信息
-                            that.queryUsreInfo();
                             //用户已经授权过
                             wx.switchTab({
-                                url: '/pages/home/home'
+                                url: '/pages/mine/mine'
                             })
                         }
-                    });
+                  });
                 }
             }
         })
@@ -27,12 +25,11 @@ Page({
     bindGetUserInfo: function (e) {
         if (e.detail.userInfo) {
             //用户按了允许授权按钮
-            var that = this;
             //插入登录的用户的相关信息到数据库
-
+            this.setUserInfo(e.detail.userInfo);
             //授权成功后，跳转进入小程序首页
             wx.switchTab({
-                url: '/pages/home/home'  
+                url: '/pages/mine/mine'
             })
         } else {
             //用户按了拒绝按钮
@@ -44,13 +41,21 @@ Page({
                 success:function(res){
                     if (res.confirm) {
                         console.log('用户点击了“返回授权”')
-                    } 
+                    }
                 }
             })
         }
     },
-    //获取用户信息接口
-    queryUsreInfo: function () {
+    setUserInfo: function (info) {
+      const db = wx.cloud.database()
+      console.log(info.userInfo)
+      db.collection('user').add({
+        data: {
+          nickName: info.nickName,
+          avatarUrl: info.avatarUrl,
+          isVip: 0,
+        }
+      })
     },
 
 })

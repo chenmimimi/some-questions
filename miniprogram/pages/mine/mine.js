@@ -6,55 +6,21 @@ Page({
    */
   data: {
     list: [],
-    selectId: 0,
+    currentTabIndex: 0,
   },
-
 
   /**
    * 操作数据库相关
    */
-  getOtherData: function(data) {
-    for(let i = 0; i < data.length; i +=1) {
-      const db = wx.cloud.database()
-      db.collection('like').where({
-        adviseId: data[i]._id
-      }).count().then(res => {
-        data[i].like = res.total
-      })
-      db.collection('reply').where({
-        adviseId: data[i]._id
-      }).count().then(res => {
-        data[i].reply = res.total
-      })
-      db.collection('comment').where({
-        adviseId: data[i]._id
-      }).count().then(res => {
-        data[i].comment = res.total
-      })
-    }
-    setTimeout(() => {
-      this.setData({
-        list: data,
-      })
-    },2000)
-
-  },
-
-  getData: function(openid) {
-    const db = wx.cloud.database()
-    db.collection('advise').where({
-      _openid: openid,
-      status: 0,
-    }).get().then(res => {
-      this.getOtherData(res.data)
+  changeTab(e){
+    this.getData(e.detail.index)
+    this.setData({
+      currentTabIndex: e.detail.index
     })
   },
-  changeTab(e){
-    console.log(e)
-  },
 
-  toAdviseDetail(event) {
-    const id = event.currentTarget.dataset.id
+  toAdviseDetail(e) {
+    const id = e.currentTarget.dataset.id
     wx.navigateTo({
       //目的页面地址
       url: "../commentDetail/commentDetail?id=" + id,
@@ -62,7 +28,7 @@ Page({
     })
   },
   onConfirm(e) {
-    console.log('陈胖胖',e)
+    console.log('陈胖胖', e.currentTarget.dataset.id)
   },
   onDelete(e) {
     console.log('又胖了',e)
@@ -71,22 +37,32 @@ Page({
     console.log(e)
   },
 
+  getData: function(status) {
+    let that = this
+
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'advise-list',
+      data: {
+        type: 'mine',
+        status,
+      },
+      // 传给云函数的参数
+      success(res) {
+        console.log(res)
+        that.setData({
+          list: res.result.adviseList.data,
+        })
+      },
+      fail: console.error
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that = this
-
-    wx.cloud.callFunction({
-      // 云函数名称
-      name: 'login',
-      // 传给云函数的参数
-      success(res) {
-        that.getData(res.result.openid)
-      },
-      fail: console.error
-    })
-
+    this.getData()
   },
 
   /**

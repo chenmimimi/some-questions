@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/authorize/authorize",
     "pages/mine/mine",
     "pages/commentDetail/commentDetail",
-    "pages/authorize/authorize",
     "pages/community/community",
     "pages/advise/advise",
     "pages/vent/vent",

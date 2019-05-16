@@ -6,8 +6,18 @@ Page({
    */
   data: {
     list: [],
-    selectId: 0,
   },
+
+  changeTab(e){
+    if(e.detail.index === 0) {
+      this.getData()
+    } else if (e.detail.index === 1) {
+      this.getData(0)
+    } else {
+      this.getData(1)
+    }
+  },
+
 
   fechData: function () {
     const db = wx.cloud.database()
@@ -28,11 +38,30 @@ Page({
     })
   },
 
+  getData: function(status) {
+    let that = this
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'advise-list',
+      data: {
+        status,
+      },
+      // 传给云函数的参数
+      success(res) {
+        console.log(res)
+        that.setData({
+          list: res.result.adviseList.data,
+        })
+      },
+      fail: console.error
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.fechData()
+    this.getData(0)
   },
 
   /**

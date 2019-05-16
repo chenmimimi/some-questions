@@ -24,7 +24,7 @@ function touchMove(e, ownerInstance) {
       'transform': 'translate3d(' + state.translateX + 'px, 0px, 0px)'
     })
   }
-  return false;
+
 }
 
 function touchEnd(e, ownerInstance) {
