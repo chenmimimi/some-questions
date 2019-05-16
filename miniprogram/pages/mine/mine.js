@@ -33,6 +33,10 @@ Page({
   onDelete(e) {
     console.log('又胖了',e)
   },
+  onLikeTap(e) {
+    console.log(111,e);
+    return false;
+  },
   test(e) {
     console.log(e)
   },

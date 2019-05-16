@@ -53,7 +53,7 @@ function onTap(e, ownerInstance) {
 }
 
 function onMaskTouch(e, ownerInstance) {
-  closeOption(ownerInstance)
+  closeOption(ownerInstance);
 }
 
 //展开操作项

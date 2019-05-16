@@ -20,7 +20,7 @@
       <view class='extra'>
         <text class="time">{{item.createdAt}}</text>
         <view class="operate">
-          <span class="like"><image src='../../images/like.png' />{{item.like}}</span>
+          <span class="like" catchtap="onLikeTap"><image src='../../images/like.png' />{{item.like}}</span>
           <span class="reply"><image src='../../images/reply.png' />{{item.reply}}</span>
           <span class="discuss"><image src='../../images/discuss.png' />{{item.comment}}</span>
         </view>

@@ -2,6 +2,9 @@
   width: 100%;
   position: relative;
 }
+.swipe-action-main {
+  position: relative;
+}
 .swipe-action-ctn {
   position: relative;
   z-index: 50;
@@ -39,8 +42,8 @@
   bottom: 0;
   display: none;
 }
-.active {
-  z-index: 101;
+.active .swipe-action-main{
+  z-index: 102;
 }
 .active .mask {
   display: block;
