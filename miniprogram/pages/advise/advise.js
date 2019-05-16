@@ -36,8 +36,8 @@ Page({
           icon: 'success',
           duration: 2000,
         })
-        wx.navigateTo({
-          url: '../mine/mine'
+        wx.switchTab({
+          url: '/pages/mine/mine'
         })
       },
       fail: console.error
