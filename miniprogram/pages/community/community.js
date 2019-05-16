@@ -42,13 +42,12 @@ Page({
     let that = this
     wx.cloud.callFunction({
       // 云函数名称
-      name: 'advise-list',
+      name: 'get-advise-list',
       data: {
         status,
       },
       // 传给云函数的参数
       success(res) {
-        console.log(res)
         that.setData({
           list: res.result.adviseList.data,
         })

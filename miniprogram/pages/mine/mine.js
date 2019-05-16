@@ -28,7 +28,22 @@ Page({
     })
   },
   onConfirm(e) {
-    console.log('陈胖胖', e.currentTarget.dataset.id)
+    const currentTabIndex = this.data.currentTabIndex
+    const id = e.currentTarget.dataset.id
+    const that = this
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'change-advise-status',
+      data: {
+        id,
+        status: currentTabIndex === 0 ? 1 : 0,
+      },
+      // 传给云函数的参数
+      success(res) {
+        that.getData(currentTabIndex)
+      },
+      fail: console.error
+    })
   },
   onDelete(e) {
     console.log('又胖了',e)
@@ -43,17 +58,15 @@ Page({
 
   getData: function(status) {
     let that = this
-
     wx.cloud.callFunction({
       // 云函数名称
-      name: 'advise-list',
+      name: 'get-advise-list',
       data: {
         type: 'mine',
         status,
       },
       // 传给云函数的参数
       success(res) {
-        console.log(res)
         that.setData({
           list: res.result.adviseList.data,
         })
@@ -66,7 +79,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData()
+    this.getData(0)
   },
 
   /**

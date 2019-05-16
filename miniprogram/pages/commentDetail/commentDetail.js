@@ -19,50 +19,31 @@ Page({
       inputValue: e.detail.value
     })
   },
-  
-  addAdvise: function () {
-    const db = wx.cloud.database()
-    db.collection('advise').add({
-      // data 字段表示需新增的 JSON 数据
-      data: {
-        title: this.data.inputValue,
-        description: this.data.textareaValue,
-      },
-      success(res) {
-        wx.showToast({
-          title: '提交建议成功',
-          icon: 'success',
-          duration: 2000
-        })
-        // setTimeout(() => {
-        //   wx.navigateTo({
-        //     url: '../home/home'
-        //   })
-        // }, 1900)
-        
-        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-      }
-    })
-  },
 
   getDiscussDetail: function(id) {
-    const db = wx.cloud.database()
-    db.collection('advise').where({
-      _id: id,
-    }).get().then(res => {
-      this.setData({
-        detail: res.data[0]
-      })
-      console.log(res.data)
+    let that = this
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'get-advise-detail',
+      data: {
+        id
+      },
+      success(res) {
+        console.log(res)
+        that.setData({
+          detail: res.result.adviseDetail,
+        })
+      },
+      fail: console.error
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDiscussDetail(options.id)
+    this.getDiscussDetail(options.id);
     this.setData({
-      from: options.from
+      from: options.from || ''
     })
   },
 
