@@ -71,6 +71,9 @@ Page({
   },
 
   getData: function(status) {
+    wx.showLoading({
+      title: '加载中',
+    })
     let that = this
     wx.cloud.callFunction({
       // 云函数名称
@@ -85,6 +88,7 @@ Page({
         that.setData({
           list: res.result.adviseList.data,
         })
+        wx.hideLoading()
       },
       fail: console.error
     })

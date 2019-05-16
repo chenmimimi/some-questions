@@ -12,9 +12,9 @@
 
   <view class="reply-detail">
     <view class="item" wx:key="{{index}}" wx:for="{{detail.reply}}">
-      <image src=''/>
+      <image src="{{item.avatarUrl}}"/>
       <view class="content">
-        <text class="name">这是名字</text><text class="time">{{item.createdAt}}</text>
+        <text class="name">{{item.nikeName}}</text><text class="time">{{item.createdAt}}</text>
         <view class="main">{{item.content}}</view>
       </view>
     </view>
@@ -22,9 +22,9 @@
 
   <view class="comment-detail">
     <view class="item" wx:key="{{index}}" wx:for="{{detail.comment}}">
-      <image src=''/>
+      <image src="{{item.avatarUrl}}"/>
       <view class="content">
-        <text class="name">这是名字</text><text class="time">{{item.createdAt}}</text>
+        <text class="name">{{item.nikeName}}</text><text class="time">{{item.createdAt}}</text>
         <view class="main">{{item.content}}</view>
       </view>
     </view>
