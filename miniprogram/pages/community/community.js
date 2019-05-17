@@ -39,6 +39,9 @@ Page({
   },
 
   getData: function(status) {
+    wx.showLoading({
+      title: '加载中',
+    })
     let that = this
     wx.cloud.callFunction({
       // 云函数名称
@@ -51,6 +54,7 @@ Page({
         that.setData({
           list: res.result.adviseList.data,
         })
+        wx.hideLoading()
       },
       fail: console.error
     })
@@ -60,7 +64,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData()
   },
 
   /**
@@ -74,7 +77,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getData()
   },
 
   /**

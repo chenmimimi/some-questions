@@ -18,23 +18,37 @@ exports.main = async (event, context) => {
   const adviseList = await db.collection('advise').where(adviseCondition).get()
 
   for(let i = 0; i < adviseList.data.length; i +=1) {
+    let currentAdvise = adviseList.data[i]
     const likePromise = await db.collection('like').where({
-      adviseId: adviseList.data[i]._id
+      adviseId: currentAdvise._id
     }).count()
-    adviseList.data[i].like = likePromise.total
+    const youLike = await db.collection('like').where({
+      adviseId: currentAdvise._id,
+      openid: wxContext.OPENID,
+    }).count()
+    currentAdvise.like = likePromise.total
+    currentAdvise.youLike = youLike.total
 
     const replyPromise = await db.collection('reply').where({
-      adviseId: adviseList.data[i]._id
+      adviseId: currentAdvise._id
     }).count()
-    adviseList.data[i].reply = replyPromise.total
+    const youReply = await db.collection('reply').where({
+      adviseId: currentAdvise._id,
+      openid: wxContext.OPENID,
+    }).count()
+    currentAdvise.reply = replyPromise.total
+    currentAdvise.youReply = youReply.total
 
     const commentPromise = await db.collection('comment').where({
-      adviseId: adviseList.data[i]._id
+      adviseId: currentAdvise._id
     }).count()
-    adviseList.data[i].comment = commentPromise.total
+    const youComment = await db.collection('comment').where({
+      adviseId: currentAdvise._id,
+      openid: wxContext.OPENID,
+    }).count()
+    currentAdvise.comment = commentPromise.total
+    currentAdvise.youComment = youComment.total
   }
-
-  console.log(adviseList)
 
   return {
     adviseList
