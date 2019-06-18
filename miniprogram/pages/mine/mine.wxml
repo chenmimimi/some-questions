@@ -4,7 +4,6 @@
   <view class="top-nav">
     <fun-tab items="{{['待处理', '已处理']}}" bind:onChange="changeTab"/>
   </view>
-
   <swipe-acton
     bind:onTap="toAdviseDetail"
     bind:onLeftTap="onConfirm"
@@ -21,9 +20,9 @@
       <view class='extra'>
         <text class="time">{{item.createdAt}}</text>
         <view class="operate">
-          <span class="like {{item.youLike === 0 ? '': 'liked'}}" catchtap="onLikeTap">
+          <!-- <span class="like {{item.youLike === 0 ? '': 'liked'}}" catchtap="onLikeTap">
             <image src="{{item.youLike === 0 ? '../../images/like.png': '../../images/liked.png' }}" />{{item.like}}
-          </span>
+          </span> -->
           <span class="reply {{item.youReply === 0 ? '': 'replied'}}">
             <image src="{{item.youReply === 0 ? '../../images/reply.png': '../../images/replied.png' }}" />{{item.reply}}
           </span>
@@ -35,6 +34,7 @@
     </view>
   </swipe-acton>
 
+  <view class="empty" wx:if="{{list.length === 0}}">暂无数据😂</view>
 
   <navigator class='add' url="../advise/advise" open-type="navigate"><image src='../../images/add1.png' /></navigator>
 </view>

@@ -6,28 +6,34 @@ const db = cloud.database()
 
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  let adviseCondition = {
+  const pageIndex = event.pageIndex || 1;
+  const pageSize = event.pageSize || 10;
+  let filters = {
     status: event.status,
   }
   if(event.type === 'mine') {
-    adviseCondition = {
+    filters = {
       openid: wxContext.OPENID,
       status: event.status,
     }
   }
-  const adviseList = await db.collection('advise').where(adviseCondition).get()
+
+  const countResult = await db.collection('advise').where(filters).count()
+  const total = countResult.total
+
+  const adviseList = await db.collection('advise').where(filters).skip((pageIndex - 1) * pageSize).limit(pageSize).get()
 
   for(let i = 0; i < adviseList.data.length; i +=1) {
     let currentAdvise = adviseList.data[i]
-    const likePromise = await db.collection('like').where({
-      adviseId: currentAdvise._id
-    }).count()
-    const youLike = await db.collection('like').where({
-      adviseId: currentAdvise._id,
-      openid: wxContext.OPENID,
-    }).count()
-    currentAdvise.like = likePromise.total
-    currentAdvise.youLike = youLike.total
+    // const likePromise = await db.collection('like').where({
+    //   adviseId: currentAdvise._id
+    // }).count()
+    // const youLike = await db.collection('like').where({
+    //   adviseId: currentAdvise._id,
+    //   openid: wxContext.OPENID,
+    // }).count()
+    // currentAdvise.like = likePromise.total
+    // currentAdvise.youLike = youLike.total
 
     const replyPromise = await db.collection('reply').where({
       adviseId: currentAdvise._id
@@ -51,7 +57,10 @@ exports.main = async (event, context) => {
   }
 
   return {
-    adviseList
+    adviseList: {
+      list: adviseList.data,
+      total
+    }
   }
 
 }

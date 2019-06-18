@@ -11,7 +11,8 @@
 }
 .fixed-input-wrapper input {
   background: #FFF;
-  border-radius: 8rpx;
-  font-size: 28rpx;
-  height: 44rpx;
+  border-radius: 4rpx;
+  font-size: 36rpx;
+  height: 68rpx;
+  padding-left: 20rpx;
 }

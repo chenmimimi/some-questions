@@ -86,12 +86,25 @@ Page({
       success(res) {
         console.log(res)
         that.setData({
-          list: res.result.adviseList.data,
+          list: res.result.adviseList.list,
         })
         wx.hideLoading()
       },
       fail: console.error
     })
+  },
+
+  //滚动到底部触发事件
+  searchScrollLower: function(){
+    let that = this;
+    console.log('上拉加载')
+    // if(that.data.searchLoading && !that.data.searchLoadingComplete){
+    // that.setData({
+    //   searchPageNum: that.data.searchPageNum+1,  //每次触发上拉事件，把searchPageNum+1
+    //   isFromSearch: false  //触发到上拉事件，把isFromSearch设为为false
+    // });
+    // that.fetchSearchList();
+    // }
   },
 
   /**

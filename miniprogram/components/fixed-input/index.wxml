@@ -1,3 +1,3 @@
 <view class="fixed-input-wrapper">
-  <input />
+  <input placeholder="评论" confirm-hold="{{true}}" type="text" confirm-type="send"/>
 </view>

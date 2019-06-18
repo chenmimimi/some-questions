@@ -52,7 +52,7 @@ Page({
       // 传给云函数的参数
       success(res) {
         that.setData({
-          list: res.result.adviseList.data,
+          list: res.result.adviseList.list,
         })
         wx.hideLoading()
       },

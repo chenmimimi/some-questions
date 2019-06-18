@@ -5,21 +5,14 @@
     "pages/commentDetail/commentDetail",
     "pages/community/community",
     "pages/advise/advise",
-    "pages/vent/vent",
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
     "pages/reply/reply"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "意见反馈",
+    "navigationBarTitleText": "我有一个问题",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
