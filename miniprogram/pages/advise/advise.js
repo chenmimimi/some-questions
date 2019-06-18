@@ -22,6 +22,14 @@ Page({
   },
 
   addAdvise: function () {
+    if( !this.data.inputValue || !this.data.textareaValue) {
+      wx.showToast({
+        title: '问题和描述不能为空',
+        icon: 'success',
+        duration: 2000,
+      })
+      return
+    }
     wx.cloud.callFunction({
       // 云函数名称
       name: 'add-question',
