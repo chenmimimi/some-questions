@@ -49,13 +49,13 @@ Page({
     setUserInfo: function (info) {
       const db = wx.cloud.database()
       console.log(info.userInfo)
-      db.collection('user').add({
-        data: {
-          nickName: info.nickName,
-          avatarUrl: info.avatarUrl,
-          isVip: 0,
-        }
-      })
+      // db.collection('user').add({
+      //   data: {
+      //     nickName: info.nickName,
+      //     avatarUrl: info.avatarUrl,
+      //     isVip: 0,
+      //   }
+      // })
     },
 
 })
