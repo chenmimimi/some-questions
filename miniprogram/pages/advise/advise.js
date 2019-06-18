@@ -24,8 +24,7 @@ Page({
   addAdvise: function () {
     if( !this.data.inputValue || !this.data.textareaValue) {
       wx.showToast({
-        title: '问题和描述不能为空',
-        icon: 'success',
+        title: '不能为空',
         duration: 2000,
       })
       return
