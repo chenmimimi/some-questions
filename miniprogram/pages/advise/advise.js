@@ -26,6 +26,7 @@ Page({
       wx.showToast({
         title: '不能为空',
         duration: 2000,
+        icon: none,
       })
       return
     }
