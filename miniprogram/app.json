@@ -27,7 +27,7 @@
       },
       {
         "pagePath": "pages/community/community",
-        "text": "社 区",
+        "text": "中 心",
         "iconPath": "images/community.png",
         "selectedIconPath": "images/community1.png"
       }
