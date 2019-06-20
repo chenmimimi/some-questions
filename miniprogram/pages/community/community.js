@@ -5,16 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currentTabIndex: 0,
+    pageIndex: 1,
+    total: 0,
     list: [],
   },
 
   changeTab(e){
     if(e.detail.index === 0) {
-      this.getData()
+      this.getData(2, 1)
     } else if (e.detail.index === 1) {
-      this.getData(0)
+      this.getData(0, 1)
     } else {
-      this.getData(1)
+      this.getData(1, 1)
     }
   },
 
@@ -38,23 +41,29 @@ Page({
     })
   },
 
-  getData: function(status) {
+  getData: function(status, pageIndex, loadMore = false) {
     wx.showLoading({
       title: '加载中',
     })
+    this.loading = true
     let that = this
     wx.cloud.callFunction({
       // 云函数名称
       name: 'get-advise-list',
       data: {
         status,
+        pageIndex,
       },
       // 传给云函数的参数
       success(res) {
+        console.log(res.result.adviseList)
         that.setData({
-          list: res.result.adviseList.list,
+          pageIndex,
+          total: res.result.adviseList.total / 10 ,
+          list: loadMore ? that.data.list.concat(res.result.adviseList.list) : res.result.adviseList.list,
         })
         wx.hideLoading()
+        that.loading = false
       },
       fail: console.error
     })
@@ -77,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData()
+    this.getData(0, 1)
   },
 
   /**
@@ -105,7 +114,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (!this.loading && this.data.pageIndex < this.data.total) {
+      this.getData(this.data.currentTabIndex, this.data.pageIndex + 1, true)
+    }
   },
 
   /**

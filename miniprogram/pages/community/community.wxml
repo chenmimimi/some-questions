@@ -21,5 +21,10 @@
       </view>
     </view>
   </view>
-  <navigator class='add' url="../advise/advise" open-type="navigate"><image src='../../images/add1.png' /></navigator>
+
+  <view class="empty" wx:if="{{list.length === 0}}">暂无数据😂</view>
+
+  <navigator class='add' url="../advise/advise" open-type="navigate">
+    <image src='../../images/add1.png' />
+  </navigator>
 </view>

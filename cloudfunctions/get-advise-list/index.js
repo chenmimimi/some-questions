@@ -8,15 +8,23 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const pageIndex = event.pageIndex || 1;
   const pageSize = event.pageSize || 10;
-  let filters = {
-    status: event.status,
-  }
-  if(event.type === 'mine') {
+  let filters = {}
+  if(event.status === 0 || event.status === 1) {
     filters = {
-      openid: wxContext.OPENID,
       status: event.status,
     }
+    if(event.type === 'mine') {
+      filters = {
+        openid: wxContext.OPENID,
+        status: event.status,
+      }
+    }
+  } else if (event.type === 'mine'){
+    filters = {
+      openid: wxContext.OPENID,
+    }
   }
+
 
   const countResult = await db.collection('advise').where(filters).count()
   const total = countResult.total

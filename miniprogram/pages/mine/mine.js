@@ -1,19 +1,20 @@
 // miniprogram/pages/home.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    list: [],
     currentTabIndex: 0,
+    pageIndex: 1,
+    total: 0,
+    list: [],
   },
 
   /**
    * 操作数据库相关
    */
   changeTab(e){
-    this.getData(e.detail.index)
+    this.getData(e.detail.index, 1)
     this.setData({
       currentTabIndex: e.detail.index
     })
@@ -57,7 +58,7 @@ Page({
       },
       // 传给云函数的参数
       success(res) {
-        that.getData(currentTabIndex)
+        that.getData(currentTabIndex, 1)
       },
       fail: console.error
     })
@@ -70,10 +71,11 @@ Page({
     console.log(e)
   },
 
-  getData: function(status) {
+  getData: function(status, pageIndex, loadMore = false) {
     wx.showLoading({
       title: '加载中',
     })
+    this.loading = true
     let that = this
     wx.cloud.callFunction({
       // 云函数名称
@@ -81,30 +83,21 @@ Page({
       data: {
         type: 'mine',
         status,
+        pageIndex,
       },
       // 传给云函数的参数
       success(res) {
-        console.log(res)
+        console.log(res.result.adviseList)
         that.setData({
-          list: res.result.adviseList.list,
+          pageIndex,
+          total: res.result.adviseList.total / 10 ,
+          list: loadMore ? that.data.list.concat(res.result.adviseList.list) : res.result.adviseList.list,
         })
         wx.hideLoading()
+        that.loading = false
       },
       fail: console.error
     })
-  },
-
-  //滚动到底部触发事件
-  searchScrollLower: function(){
-    let that = this;
-    console.log('上拉加载')
-    // if(that.data.searchLoading && !that.data.searchLoadingComplete){
-    // that.setData({
-    //   searchPageNum: that.data.searchPageNum+1,  //每次触发上拉事件，把searchPageNum+1
-    //   isFromSearch: false  //触发到上拉事件，把isFromSearch设为为false
-    // });
-    // that.fetchSearchList();
-    // }
   },
 
   /**
@@ -124,7 +117,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData(0)
+    this.getData(0, 1)
   },
 
   /**
@@ -152,7 +145,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // 下拉触底，先判断是否有请求正在进行中
+    // 以及检查当前请求页数是不是小于数据总页数，如符合条件，则发送请求
+    if (!this.loading && this.data.pageIndex < this.data.total) {
+      this.getData(this.data.currentTabIndex, this.data.pageIndex + 1, true)
+    }
   },
 
   /**
