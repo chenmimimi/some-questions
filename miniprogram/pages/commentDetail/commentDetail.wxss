@@ -2,24 +2,26 @@
   padding: 40rpx;
 }
 .advise-detail-title{
-  color: #424a5e;
   font-size: 36rpx;
   font-weight: bolder;
+  color: #424a5e;
+
 }
 .advise-detail-description{
-  color: #61687c;
-  font-size: 30rpx;
   margin-top: 8rpx;
+  font-size: 30rpx;
+  color: #61687c;
 }
 .extra{
-  color: #bbb;
-  font-size: 24rpx;
   margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #bbb;
 }
 .operate{
   margin-top: 40rpx;
 }
 .reply, .comment{
+  box-sizing: border-box;
   display: inline-block;
   width: 50%;
   height: 88rpx;
@@ -27,7 +29,6 @@
   text-align: center;
   font-size: 34rpx;
   border: none;
-  box-sizing: border-box;
 }
 .reply{
   border-radius: 5rpx 0 0 5rpx;
@@ -84,39 +85,34 @@
   color: #666;
 }
 
-.ipt {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #DDD;
-}
-
 .empty{
   height: 100rpx;
   line-height: 100rpx;
   font-size: 28rpx;
-  color: #bbb;
   text-align: center;
+  color: #bbb;
 }
 
 
 /* 评论回复 */
 .fixed-input-wrapper {
   position: fixed;
-  width: 100%;
-  height: 84rpx;
-  background: #cdced3;
   left: 0;
   bottom: 0;
   right: 0;
+  width: 100%;
+  padding: 10rpx;
   box-sizing: border-box;
-  padding: 10rpx 0 12rpx;
+  background: rgb(200, 200, 200);
 }
 .fixed-input-wrapper input {
-  background: #FFF;
   border-radius: 4rpx;
-  font-size: 36rpx;
-  height: 68rpx;
-  padding-left: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 10rpx 30rpx;
+  font-size: 34rpx;
+  background: #FFF;
+}
+.placeholder-style{
+  color: rgb(180, 180, 180)
 }

@@ -30,6 +30,9 @@ Page({
       })
       return
     }
+    this.setData({
+      submitLoading: true
+    })
     wx.cloud.callFunction({
       // 云函数名称
       name: 'add-question',
@@ -46,6 +49,9 @@ Page({
         })
         wx.switchTab({
           url: '/pages/mine/mine'
+        })
+        this.setData({
+          submitLoading: false
         })
       },
       fail: console.error
