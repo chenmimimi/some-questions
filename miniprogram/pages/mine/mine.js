@@ -13,11 +13,12 @@ Page({
   /**
    * 操作数据库相关
    */
+
   changeTab(e){
-    this.getData(e.detail.index, 1)
     this.setData({
       currentTabIndex: e.detail.index
     })
+    this.getData(e.detail.index, 1)
   },
 
   toAdviseDetail(e) {
@@ -28,7 +29,8 @@ Page({
       success: function(res){},
     })
   },
-  onConfirm(e) {
+
+  onConfirmChangeStatus(e) {
     const currentTabIndex = this.data.currentTabIndex
     const id = e.currentTarget.dataset.id
     const that = this
@@ -46,6 +48,7 @@ Page({
       fail: console.error
     })
   },
+
   onDelete(e) {
     const currentTabIndex = this.data.currentTabIndex
     const id = e.currentTarget.dataset.id
@@ -63,19 +66,12 @@ Page({
       fail: console.error
     })
   },
-  onLikeTap(e) {
-    console.log(111,e);
-    return false;
-  },
-  test(e) {
-    console.log(e)
-  },
 
   getData: function(status, pageIndex, loadMore = false) {
     wx.showLoading({
       title: '加载中',
     })
-    this.loading = true
+    this.getDataLoading = true
     let that = this
     wx.cloud.callFunction({
       // 云函数名称
@@ -87,14 +83,13 @@ Page({
       },
       // 传给云函数的参数
       success(res) {
-        console.log(res.result.adviseList)
         that.setData({
           pageIndex,
           total: res.result.adviseList.total / 10 ,
           list: loadMore ? that.data.list.concat(res.result.adviseList.list) : res.result.adviseList.list,
         })
         wx.hideLoading()
-        that.loading = false
+        that.getDataLoading = false
       },
       fail: console.error
     })
@@ -104,6 +99,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getData(0, 1)
   },
 
   /**
@@ -117,7 +113,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData(0, 1)
   },
 
   /**
@@ -147,7 +142,7 @@ Page({
   onReachBottom: function () {
     // 下拉触底，先判断是否有请求正在进行中
     // 以及检查当前请求页数是不是小于数据总页数，如符合条件，则发送请求
-    if (!this.loading && this.data.pageIndex < this.data.total) {
+    if (!this.getDataLoading && this.data.pageIndex < this.data.total) {
       this.getData(this.data.currentTabIndex, this.data.pageIndex + 1, true)
     }
   },

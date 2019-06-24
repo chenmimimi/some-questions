@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "fun-tab": "../../components/fun-tabs/index"
+    "fun-tab": "../../components/fun-tabs/index",
+    "question-list": "../../components/question-list/index",
+    "add-question-btn": "../../components/add-question-btn/index"
   }
 }

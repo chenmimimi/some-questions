@@ -4,6 +4,7 @@
   <view class='extra'>
     <text class="time">{{detail.createdAt}}</text>
   </view>
+
   <view class="operate" wx:if="{{from === 'community'}}">
     <view class="reply" data-type="reply" bindtap="showInput">回 复</view>
     <view class="comment"  data-type="comment"  bindtap="showInput">评 论</view>
@@ -31,7 +32,6 @@
     <view class="empty" wx:if="{{detail.comment.length === 0}}">暂无评论😂</view>
   </view>
   <view class="fixed-input-wrapper" wx:if="{{from === 'community' && !!type}}">
-    <input wx:if="{{type === 'comment'}}" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="评论" confirm-hold="{{true}}" type="text" confirm-type="send"/>
-    <input wx:if="{{type === 'reply'}}" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="回复" confirm-hold="{{true}}" type="text" confirm-type="send"/>
+    <input bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="{{type === 'comment' ? '评论' : '回复'}}" confirm-hold="{{true}}" type="text" confirm-type="send"/>
   </view>
 </view>

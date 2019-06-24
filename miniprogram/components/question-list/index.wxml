@@ -1,0 +1,18 @@
+<view class="item">
+  <text class="title">{{item.title}}</text>
+  <view class="dec">{{item.description}}</view>
+  <view class='extra'>
+    <text class="time">{{item.createdAt}}</text>
+    <view class="operate">
+      <!-- <span class="like {{item.youLike === 0 ? '': 'liked'}}" catchtap="onLikeTap">
+        <image src="{{item.youLike === 0 ? '../../images/like.png': '../../images/liked.png' }}" />{{item.like}}
+      </span> -->
+      <span class="reply {{item.youReply === 0 ? '': 'replied'}}">
+        <image src="{{item.youReply === 0 ? '../../images/reply.png': '../../images/replied.png' }}" />{{item.reply}}
+      </span>
+      <span class="discuss {{item.youComment === 0 ? '': 'commented'}}">
+        <image src="{{item.youComment === 0 ? '../../images/comment.png': '../../images/commented.png' }}" />{{item.comment}}
+      </span>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+<!--components/add-question-btn/index.wxml-->
+<view class='add' bindtap="toAddQuestion">
+  <image src='../../images/add1.png' />
+</view>
