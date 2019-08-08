@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/advise/advise",
     "pages/authorize/authorize",
     "pages/mine/mine",
     "pages/commentDetail/commentDetail",
     "pages/community/community",
-    "pages/advise/advise",
     "pages/index/index",
     "pages/reply/reply"
   ],

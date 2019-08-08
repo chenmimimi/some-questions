@@ -22,6 +22,14 @@ Page({
     })
   },
 
+  bindblur1 () {
+    const currentComment = this.data.type === 'comment'
+    // const currentReply = this.data.type === 'reply'
+    if(currentComment) {
+
+    }
+  },
+
   toSubmitContent: function(options){
     const that = this
     const toastText = this.data.type === 'reply' ? '回复成功' : '评论成功'

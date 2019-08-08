@@ -2,7 +2,7 @@
   <text class="title">{{item.title}}</text>
   <view class="dec">{{item.description}}</view>
   <view class='extra'>
-    <text class="time">{{item.createdAt}}</text>
+    <text class="time">{{utils.formatTime(item.createdAt)}}</text>
     <view class="operate">
       <!-- <span class="like {{item.youLike === 0 ? '': 'liked'}}" catchtap="onLikeTap">
         <image src="{{item.youLike === 0 ? '../../images/like.png': '../../images/liked.png' }}" />{{item.like}}
@@ -16,3 +16,4 @@
     </view>
   </view>
 </view>
+<wxs module="utils" src="../../utils/util.wxs" />

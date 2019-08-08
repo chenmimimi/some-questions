@@ -2,7 +2,7 @@
   <view class="advise-detail-title">{{detail.title}}</view>
   <view class="advise-detail-description">{{detail.description}}</view>
   <view class='extra'>
-    <text class="time">{{detail.createdAt}}</text>
+    <text class="time">{{utils.formatTime(detail.createdAt)}}</text>
   </view>
 
   <view class="operate" wx:if="{{from === 'community'}}">
@@ -14,7 +14,7 @@
     <view class="item" wx:key="{{index}}" wx:for="{{detail.reply}}">
       <image src="{{item.avatarUrl}}"/>
       <view class="content">
-        <text class="name">{{item.nickName}}</text><text class="time">{{item.createdAt}}</text>
+        <text class="name">{{item.nickName}}</text><text class="time">{{utils.formatTime(item.createdAt)}}</text>
         <view class="main">{{item.content}}</view>
       </view>
     </view>
@@ -25,7 +25,7 @@
     <view class="item" wx:key="{{index}}" wx:for="{{detail.comment}}">
       <image src="{{item.avatarUrl}}"/>
       <view class="content">
-        <text class="name">{{item.nickName}}</text><text class="time">{{item.createdAt}}</text>
+        <text class="name">{{item.nickName}}</text><text class="time">{{utils.formatTime(item.createdAt)}}</text>
         <view class="main">{{item.content}}</view>
       </view>
     </view>
@@ -33,7 +33,10 @@
   </view>
   <view class="fixed-input-wrapper" wx:if="{{from === 'community' && !!type}}">
     <!-- 切换评论和回复时自动聚焦 -->
-    <input wx-if="{{type === 'comment'}}" placeholder-class="placeholder-style" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="评论" confirm-hold="{{true}}" type="text" confirm-type="send"/>
-    <input wx-if="{{type === 'reply'}}" placeholder-class="placeholder-style" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="回复" confirm-hold="{{true}}" type="text" confirm-type="send"/>
+    <input wx-if="{{type === 'comment'}}" placeholder-class="placeholder-style" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="评论" confirm-hold="{{true}}" type="text" confirm-type="send" bindblur="bindblur1"/>
+    <input wx-if="{{type === 'reply'}}" placeholder-class="placeholder-style" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="回复" confirm-hold="{{true}}" type="text" confirm-type="send" bindblur="bindblur2"/>
   </view>
 </view>
+
+<wxs module="utils" src="../../utils/util.wxs" />
+

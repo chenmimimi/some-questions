@@ -2,11 +2,13 @@
 .advise-page{
   padding: 0 50rpx;
   padding-top: 80rpx;
-  font-size: 36rpx;
+  min-height: 100vh;
+  font-size: 32rpx;
 }
 .advise-page-title{
-  height: 88rpx;
+  height: 80rpx;
   padding: 0 20rpx;
+  background-color: #fff;
   box-shadow:0 0 4rpx #00c2b3;
 }
 .advise-page-dec{
@@ -20,12 +22,18 @@
   background-color: #5dd5c8 !important;
   color: #fff !important;
 }
+button::after {
+  border-radius: 0;
+}
+button{
+  border-radius: 0;
+}
 .submit{
   margin-top: 70rpx;
-  height: 100rpx;
-  line-height: 100rpx;
+  height: 90rpx;
+  line-height: 90rpx;
   text-align: center;
-  font-size: 34rpx;
+  font-size: 32rpx;
   background-color: #5dd5c8;
   color: #fff;
 }
