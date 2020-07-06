@@ -113,6 +113,10 @@ Page({
                         })
                     }
               });
+            } else {
+              that.setData({
+                isAuthorized: false,
+              })
             }
         }
     })

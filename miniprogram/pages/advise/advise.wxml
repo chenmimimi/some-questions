@@ -6,6 +6,6 @@
 </view>
 
 <authorize
-  wx:if="{{!isAuthorized}}"
+  wx:if="{{isAuthorized === false}}"
   bind:getUserInfoSuccess="getUserInfoSuccess"
 />
