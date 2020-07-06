@@ -1,0 +1,37 @@
+<!-- <button
+  wx:if="{{!phoneNumber}}"
+  size="{{size}}"
+  class="btn btn-login btn-class"
+  type="primary"
+  open-type="getPhoneNumber"
+  bindgetphonenumber="onGetPhoneNumber"
+  style="{{btnStyle}}"
+>
+  <slot />
+</button> -->
+
+<button
+  size="{{size}}"
+  class="btn btn-login btn-class"
+  type="primary"
+  open-type="getUserInfo"
+  bindgetuserinfo="bindGetUserInfo"
+  style="{{btnStyle}}"
+>
+  <slot />
+</button>
+
+<!-- <view wx:if="{{getUserInfoModal}}" class="register-modal">
+  <view class="comfirm-modal">
+    <view class="title">提示</view>
+    <view class="content"> 是否进行用户信息授权？</view>
+    <view class="operate">
+      <view class="cancel" bindtap="cancelGetUserInfo">取消</view>
+      <view class="sure">
+        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          确定
+        </button>
+      </view>
+    </view>
+  </view>
+</view> -->

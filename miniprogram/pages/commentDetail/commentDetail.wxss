@@ -94,7 +94,7 @@
 }
 
 
-/* 评论回复 */
+/* 回复吐槽 */
 .fixed-input-wrapper {
   position: fixed;
   left: 0;

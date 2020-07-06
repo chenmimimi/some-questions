@@ -3,6 +3,7 @@
     "fun-tab": "../../components/fun-tabs/index",
     "swipe-acton": "../../components/swipe-action/index",
     "question-list": "../../components/question-list/index",
-    "add-question-btn": "../../components/add-question-btn/index"
+    "add-question-btn": "../../components/add-question-btn/index",
+    "authorize": "../../components/authorize/authorize"
   }
 }

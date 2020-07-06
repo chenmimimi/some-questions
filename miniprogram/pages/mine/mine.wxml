@@ -5,6 +5,7 @@
     <fun-tab items="{{['待处理', '已处理']}}" bind:onChange="changeTab"/>
   </view>
   <swipe-acton
+    wx:if="{{isAuthorized}}"
     bind:onTap="toAdviseDetail"
     bind:onLeftTap="onConfirmChangeStatus"
     bind:onRightTap="onDelete"
@@ -16,6 +17,11 @@
   >
     <question-list item="{{item}}" />
   </swipe-acton>
+
+  <authorize
+    wx:if="{{!isAuthorized}}"
+    bind:getUserInfoSuccess="getUserInfoSuccess"
+  />
 
   <view class="empty" wx:if="{{list.length === 0}}">暂无数据😂</view>
 

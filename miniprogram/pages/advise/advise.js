@@ -43,7 +43,7 @@ Page({
       // 传给云函数的参数
       success(res) {
         wx.showToast({
-          title: '提交建议成功',
+          title: '提交槽点成功',
           icon: 'success',
           duration: 2000,
         })
@@ -62,7 +62,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    // 查看是否授权
+    wx.getSetting({
+        success: function (res) {
+            if (res.authSetting['scope.userInfo']) {
+                wx.getUserInfo({
+                    success: function (res) {
+                        // 用户已经授权过
+                        that.setData({
+                          isAuthorized: true,
+                        })
+                    }
+              });
+            }
+        }
+    })
+  },
 
+  getUserInfoSuccess: function () {
+    this.setData({
+      isAuthorized: true,
+    })
   },
 
   /**

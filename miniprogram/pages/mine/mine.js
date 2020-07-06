@@ -70,6 +70,7 @@ Page({
   getData: function(status, pageIndex, loadMore = false) {
     wx.showLoading({
       title: '加载中',
+      mask: true,
     })
     this.getDataLoading = true
     let that = this
@@ -99,6 +100,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    // 查看是否授权
+    wx.getSetting({
+        success: function (res) {
+            if (res.authSetting['scope.userInfo']) {
+                wx.getUserInfo({
+                    success: function (res) {
+                        // 用户已经授权过
+                        that.setData({
+                          isAuthorized: true,
+                        })
+                    }
+              });
+            }
+        }
+    })
+  },
+
+  getUserInfoSuccess: function () {
+    this.setData({
+      isAuthorized: true,
+    })
   },
 
   /**

@@ -1,0 +1,75 @@
+.register-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 109;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.modal-content {
+  position: absolute;
+  width: 627rpx;
+  height: 820rpx;
+  top: 200rpx;
+  left: 62rpx;
+}
+
+.modal-close {
+  position: absolute;
+  width: 64rpx;
+  height: 64rpx;
+  top: 950rpx;
+  left: 350rpx;
+}
+/* 二次确认弹层样式 */
+.comfirm-modal {
+  width:566rpx;
+  margin: 400rpx auto;
+  background-color: #fff;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+}
+
+.comfirm-modal .title {
+  padding: 30rpx 0 0;
+  text-align: center;
+  padding-left: 0;
+  margin-bottom: 0;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #333;
+}
+
+.comfirm-modal .content {
+  padding: 20rpx 40rpx 30rpx;
+  border-bottom: 2rpx solid #ddd;
+  min-height: 72rpx;
+  color: #999;
+}
+
+.comfirm-modal .operate {
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  overflow: hidden;
+}
+
+.comfirm-modal .operate view{
+  width: 50%;
+  text-align: center;
+}
+
+.comfirm-modal .operate .cancel {
+  border-right: 1px solid #ddd;
+}
+
+.comfirm-modal .operate view button {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  width: 100%;
+  line-height: 80rpx;
+}

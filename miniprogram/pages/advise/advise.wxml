@@ -1,6 +1,11 @@
 <!--miniprogram/pages/advise/advise.wxml-->
-<view class="advise-page">
+<view class="advise-page" wx:if="{{isAuthorized}}">
   <input class="advise-page-title" placeholder="请输入标题" auto-focus bindinput="bindInput"/>
   <textarea class="advise-page-dec" id="" cols="30" rows="10" placeholder="请输入描述" bindinput="bindTextarea"></textarea>
-  <button class="submit" disabled="{{submitLoading || (!inputValue || !textareaValue)}}" bindtap="addAdvise"> 提 交 问 提</button>
+  <button class="submit" disabled="{{submitLoading || (!inputValue || !textareaValue)}}" bindtap="addAdvise"> 提 交 槽 点</button>
 </view>
+
+<authorize
+  wx:if="{{!isAuthorized}}"
+  bind:getUserInfoSuccess="getUserInfoSuccess"
+/>

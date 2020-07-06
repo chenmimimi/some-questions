@@ -6,8 +6,8 @@
   </view>
 
   <view class="operate" wx:if="{{from === 'community'}}">
-    <view class="reply" data-type="reply" bindtap="showInput">回 复</view>
-    <view class="comment"  data-type="comment"  bindtap="showInput">评 论</view>
+    <view class="reply" data-type="reply" bindtap="showInput">回 怼</view>
+    <view class="comment"  data-type="comment"  bindtap="showInput">吐 槽</view>
   </view>
 
   <view class="reply-detail">
@@ -29,11 +29,11 @@
         <view class="main">{{item.content}}</view>
       </view>
     </view>
-    <view class="empty" wx:if="{{!detail.comment.length}}">暂无评论😂</view>
+    <view class="empty" wx:if="{{!detail.comment.length}}">暂无吐槽😂</view>
   </view>
   <view class="fixed-input-wrapper" wx:if="{{from === 'community' && !!type}}">
-    <!-- 切换评论和回复时自动聚焦 -->
-    <input wx-if="{{type === 'comment'}}" placeholder-class="placeholder-style" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="评论" confirm-hold="{{true}}" type="text" confirm-type="send" bindblur="bindblur1"/>
+    <!-- 切换吐槽和回复时自动聚焦 -->
+    <input wx-if="{{type === 'comment'}}" placeholder-class="placeholder-style" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="吐槽" confirm-hold="{{true}}" type="text" confirm-type="send" bindblur="bindblur1"/>
     <input wx-if="{{type === 'reply'}}" placeholder-class="placeholder-style" bindinput="bindInput" focus="{{true}}" bindconfirm="toSubmitContent" placeholder="回复" confirm-hold="{{true}}" type="text" confirm-type="send" bindblur="bindblur2"/>
   </view>
 </view>

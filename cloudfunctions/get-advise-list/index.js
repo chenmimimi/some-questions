@@ -29,7 +29,7 @@ exports.main = async (event, context) => {
   const countResult = await db.collection('advise').where(filters).count()
   const total = countResult.total
 
-  const adviseList = await db.collection('advise').where(filters).skip((pageIndex - 1) * pageSize).limit(pageSize).get()
+  const adviseList = await db.collection('advise').where(filters).skip((pageIndex - 1) * pageSize).limit(pageSize).orderBy('createdAt', 'desc').get()
 
   for(let i = 0; i < adviseList.data.length; i +=1) {
     let currentAdvise = adviseList.data[i]

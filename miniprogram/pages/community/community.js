@@ -44,6 +44,7 @@ Page({
   getData: function(status, pageIndex, loadMore = false) {
     wx.showLoading({
       title: '加载中',
+      mask: true,
     })
     this.loading = true
     let that = this

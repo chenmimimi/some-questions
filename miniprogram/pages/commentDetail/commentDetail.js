@@ -32,7 +32,7 @@ Page({
 
   toSubmitContent: function(options){
     const that = this
-    const toastText = this.data.type === 'reply' ? '回复成功' : '评论成功'
+    const toastText = this.data.type === 'reply' ? '回复成功' : '吐槽成功'
     wx.cloud.callFunction({
       // 云函数名称
       name: 'add-question-about-content',
@@ -61,6 +61,7 @@ Page({
   getDiscussDetail: function(id) {
     wx.showLoading({
       title: '加载中',
+      mask: true,
     })
     let that = this
     wx.cloud.callFunction({
