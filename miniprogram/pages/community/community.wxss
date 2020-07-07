@@ -6,10 +6,3 @@
   margin-bottom: 10rpx;
 }
 
-.empty{
-  margin-top: 300rpx;
-  font-size: 28rpx;
-  color: #bbb;
-  text-align: center;
-}
-

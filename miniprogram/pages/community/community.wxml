@@ -1,13 +1,12 @@
 <!--miniprogram/pages/discuss/discuss.wxml-->
 <view class="community-page-container">
-  <view class="top-nav">
-    <fun-tab items="{{['全部', '待处理', '已处理']}}" bind:onChange="changeTab"/>
-  </view>
+  <fun-tab custom-class="top-nav" items="{{['全部', '待处理', '已处理']}}" bind:onChange="changeTab"/>
+
   <view data-id="{{item._id}}" wx:key="{{index}}" wx:for="{{list}}"  bindtap="toAdviseDetail">
     <question-list item="{{item}}" />
   </view>
 
-  <view class="empty" wx:if="{{list.length === 0}}">暂无数据😂</view>
+  <empty wx:if="{{list.length === 0}}"/>
 
   <add-question-btn />
 

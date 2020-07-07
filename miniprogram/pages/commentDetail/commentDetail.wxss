@@ -85,14 +85,6 @@
   color: #666;
 }
 
-.empty{
-  height: 100rpx;
-  line-height: 100rpx;
-  font-size: 28rpx;
-  text-align: center;
-  color: #bbb;
-}
-
 
 /* 回复评论 */
 .fixed-input-wrapper {

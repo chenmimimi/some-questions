@@ -18,7 +18,7 @@
         <view class="main">{{item.content}}</view>
       </view>
     </view>
-    <view class="empty" wx:if="{{!detail.reply.length}}">暂无回复😂</view>
+    <empty wx:if="{{!detail.reply.length}}" title="暂无回复😂" />
   </view>
 
   <view class="comment-detail">
@@ -29,7 +29,7 @@
         <view class="main">{{item.content}}</view>
       </view>
     </view>
-    <view class="empty" wx:if="{{!detail.comment.length}}">暂无评论😂</view>
+    <empty wx:if="{{!detail.comment.length}}" title="暂无评论😂" />
   </view>
   <view class="fixed-input-wrapper" wx:if="{{from === 'community' && !!type}}">
     <!-- 切换评论和回复时自动聚焦 -->

@@ -2,6 +2,7 @@
   "usingComponents": {
     "fun-tab": "../../components/fun-tabs/index",
     "question-list": "../../components/question-list/index",
-    "add-question-btn": "../../components/add-question-btn/index"
+    "add-question-btn": "../../components/add-question-btn/index",
+    "empty": "../../components/empty/index"
   }
 }

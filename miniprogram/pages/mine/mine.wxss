@@ -6,11 +6,4 @@
   margin-bottom: 10rpx;
 }
 
-.empty{
-  margin-top: 300rpx;
-  font-size: 28rpx;
-  color: #bbb;
-  text-align: center;
-}
-
 /* rgb(118,213,114), #FF6666, #FFCC99, #CCCCCC */
